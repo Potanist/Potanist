@@ -1,0 +1,142 @@
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#addplant-breeder').change(function(){
+        if(this.value == "None"){
+            $('#addplant-strain').replaceWith('<input class="form-control" id="addplantstrain">');
+        }
+        else{
+            Dajaxice.core.ajax_get_strains_of_breeder(populate_strain_list, {'breeder_id': this.value});
+        }
+    });
+
+    $('#addplant-strain').change(function(){
+        var namefield = $('#addplant-name');
+        if(namefield.val() == ""){
+            namefield.attr("placeholder", $("option:selected", this).text());
+        }
+    });
+
+    $('#addplantquantity').change(function(){
+        console.log("lol");
+        if($('#addplantquantity').val() < 0){
+            $('#addplantquantity').parents('.form-group').addClass('has-error').append('<span class="text-danger">Quantity must be 1 or greater.</span>');
+            $('#addplant-submit').attr('disabled', true);
+        }
+        else{
+            $('#addplantquantity').parents('.form-group').children('.text-danger').remove();
+            $('#addplant-submit').attr('disabled', false);
+        }
+    });
+
+
+    $('#addplant-submit').click(function(){
+        // TODO: Disable the button
+
+        if($('#createplantform :radio[name=methodology]:checked').exists() == false){
+            $('#createplantform :radio[name=methodology]').parents('.form-group')
+                                                          .addClass('has-error')
+                                                          .append('<span class="text-danger">You must select a methodology.</span>');
+            return;
+        }
+
+        $('#createplantform :input[placeholder]').val(function(idx, currVal){
+            var placeholder = $(this).attr('placeholder') || '';
+            return currVal ? currVal : placeholder ;
+        });
+
+        Dajaxice.core.ajax_create_plant(create_plant_callback, {'form': $('#createplantform').serialize(true)});
+    });
+
+
+});
+
+function populate_breeder_list(data){
+    var breeder_select = $('#addplant-breeder');
+    breeder_select.find('option').remove();
+    $.each(data, function(k,v){
+        breeder_select.append($("<option></option>").attr("value", v[0]).text(v[1]));
+    });
+    breeder_select.trigger('change');
+}
+
+function populate_strain_list(data){
+    var strain_select = $('#addplant-strain');
+    strain_select.find('option').remove();
+    $.each(data, function(k,v){
+        $('#addplant-strain').append($("<option></option>").attr("value", v[0]).text(v[1]));
+    });
+    strain_select.trigger('change');
+}
+</script>
+<div class="modal fade" id="add-plant-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Create Plant</h4>
+      </div>
+      <div class="modal-body">
+        <form id="createplantform">
+            <div class="form-group">
+                <label>Quantity:</label>
+                <input type="number" class="form-control" id="addplantquantity" placeholder="1" name="quantity">
+            </div>
+
+            <!-- TODO: Make this a typeahead -->
+            <div class="form-group">
+                <label for="addplant-breeder">Breeder:</label>
+                <select class="form-control" id="addplant-breeder">
+                </select>
+            </div>
+
+            <!-- TODO: Make this a typeahead -->
+            <div class="form-group">
+                <label for="addplant-strain">Strain:</label>
+                <select class="form-control" id="addplant-strain" name="strain_id"></select>
+            </div>
+
+            <div class="form-group">
+                <label for="addplant-name">Name: <em>(Optional)</em></label>
+                <input class="form-control" id="addplant-name" name="name">
+            </div>
+
+
+            <div class="form-group">
+                <label for="addplant-label">Group: <em>(Optional)</em></label>
+                <input class="form-control" id="addplant-group" name="group" placeholder="Ungrouped">
+            </div>
+
+            <div class="form-group">
+                <label>Methodology:</label>
+                <div class="form-control">
+                <label class="radio-inline">
+                  <input type="radio" name="methodology" id="methodologyOptionsHydro" value="hydro"> Hydro
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="methodology" id="methodologyOptionsSoil" value="soil">Soil
+                </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="addplantstage">Stage:</label>
+                <select id="addplantstage" name="stage" class="form-control">
+                    <option value="Seed">Seed</option>
+                    <option value="Seedling">Seedling</option>
+                    <option value="Vegetative">Vegetative</option>
+                    <option value="Flowering">Flowering</option>
+                    <option value="Flush">Flush</option>
+                    <option value="Drying">Drying</option>
+                    <option value="Curing">Curing</option>
+                </select>
+            </div>
+            <input type="hidden" name="grow_id" id="addplant-grow">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="addplant-submit">Create Plant</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>

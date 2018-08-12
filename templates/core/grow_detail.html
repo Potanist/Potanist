@@ -1,0 +1,182 @@
+{% extends 'core/base.html' %}
+{% load staticfiles guardian_tags humanize core_tags%}
+
+{% block head %}
+<script type="text/javascript" src="{% static 'core/js/dashboard.js' %}"></script>
+<script type="text/javascript" src="{% static 'packages/jQuery-Storage-API/jquery.storageapi.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'packages/masonry/masonry.pkgd.min.js' %}"></script>
+<style type="text/css">
+div.columnheader{
+    font-weight: bold;
+}
+</style>
+
+<script type="text/javascript">
+grow_id = '{{ grow.id }}';
+privacy_level = '{{ grow.get_privacy }}';
+</script>
+{% endblock %}
+
+
+{% block nav %}
+{% include 'core/dashboard_nav.html' %}
+{% endblock %}
+
+{% block subnav %}
+  {% if grow.completed %}
+  <div class="alert alert-info" role="alert"><strong>Note:</strong> This grow was completed on {{ grow.end_date }}. If you wish to make changes, you must change the end-date.</div>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+{% get_obj_perms request.user for grow as "user_grow_perms" %}
+
+<div class="container-fluid pad-between-nav">
+  <div class="row">
+    <!-- Begin Grow Info Box -->
+    <div class="col-xs-12 col-sm-4 col-md-2">
+      <div class="panel panel-default">
+          <div class="panel-heading" data-toggle-noauto="collapse" data-target="#grow-info-panel-body-container">
+            <strong>{{ grow.name }}</strong>
+            {% if 'change_grow' in user_grow_perms %}
+            <a class="pull-right" href="{% url 'growupdate_view' grow.pk %}"><i class="glyphicon glyphicon-pencil"></i></a>
+            {% endif %}
+          </div>
+
+          <!-- A parent container with no padding is required for collapsible element's because Bootstrap devs
+          refused to fix a bug: https://github.com/twbs/bootstrap/issues/12093 -->
+          <div class="collapse-no-padding collapse in"  id="grow-info-panel-body-container">
+              <div class="panel-body">
+                Started: {{ grow.start_date }}<hr>
+                Completed: {{ grow.end_date|default:"Not Set" }}<hr>
+                Latest Photos:<br/>
+                (show photos here)
+              </div>
+          </div>
+
+          {% if 'change_grow' in user_grow_perms and not grow.completed%}
+          <div class="panel-heading" style="height:40px;">
+
+            <div class="col-xs-3">
+                <a href="#" class="add-plant-button" data-growid="{{ grow.id }}"><i class="glyphicon glyphicon-leaf"></i></a>
+            </div>
+            <div class="col-xs-3">
+                <a href="{% url 'photolistview_grow' grow.pk %}"><i class="glyphicon glyphicon-camera"></i></a>
+            </div>
+            <div class="col-xs-3">
+                <a href="#" class="share-button"><i class="fa fa-share-alt"></i></a>
+            </div>
+          </div>
+          {% endif %}
+      </div>
+    </div>
+    <!-- End Grow Info Box -->
+
+    <div class="col-xs-12 col-sm-8 col-md-10">
+      {% if grow.plant_set.all|length %}
+          <div class="row panel-row">
+          {% for group,plant_list in grow.get_plants_groupedby_groups.items %}
+          <div class="col-xs-12 col-md-6">
+          <div class="panel panel-primary group-panel" data-growid="{{ grow.id }}" data-group="{{ group|slugify }}">
+            <!-- Begin Group Panel Heading -->
+            <div class="panel-heading" data-toggle-noauto="collapse" data-target="#collapse-panel-body-{{ grow.id|slugify }}-{{ group|slugify }}">
+                <span id="group-heading-{{ grow.id }}-{{ group|slugify }}" data-growid="{{ grow.id }}" data-group="{{ group }}" class="group-heading">{{ group }}</span>
+
+                <div class="pull-right">
+                  {% if 'change_grow' in user_grow_perms and not grow.completed %}
+                  <div class="btn-group">
+                      <a type="button" class="btn btn-xs dropdown-toggle" style="color:#ffffff;" data-toggle="dropdown">
+                          <i class="glyphicon glyphicon-option-vertical" ></i>
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#" class="add-plant-button" data-group="{{ group }}" data-growid="{{ grow.id }}"><i class="glyphicon glyphicon-leaf"></i> Add Plant</a></li>
+                        <li><a class='rename-group-group-button' data-group="{{ group }}" data-growid="{{ grow.id }}"><i class="glyphicon glyphicon-pencil"></i> Rename</a></li>
+                      </ul>
+                  </div>
+                  {% endif %}
+                </div>
+            </div>
+            <!-- End Group Panel Heading -->
+
+            <!-- A parent container with no padding is required for collapsible element's because Bootstrap devs
+            refused to fix a bug: https://github.com/twbs/bootstrap/issues/12093 -->
+            <div class="collapse-no-padding collapse in" id="collapse-panel-body-{{ grow.id|slugify }}-{{ group|slugify }}">
+            <div class="panel-body collapse in" id="panel-body-{{ grow.id|slugify }}-{{ group|slugify }}">
+              <div class="table plants-table">
+                <div class="row">
+                  <div class="col-xs-4 columnheader">Name</div>
+                  <div class="col-xs-4 columnheader">Last Measured</div>
+                  <div class="col-xs-2 columnheader">Stage</div>
+                  <div class="col-xs-2 columnheader">Actions</div>
+                </div>
+              {% for plant in plant_list %}
+                <div class="row plantrow" data-plant-id="{{ plant.id }}">
+                  <div class="col-xs-4">{{ plant.name }}</div>
+                  <div class="col-xs-4">
+                    <a href="{% url "measurementlistforplant_view" plant.id %}" title="{{ plant.get_last_measurement.timestamp|default:"--" }} UTC">
+                        {{ plant.get_last_measurement.timestamp|default:"--"|naturaltime  }}
+                    </a>
+                    {% if 'change_grow' in user_grow_perms and not grow.completed %}
+                      <a href="{% url 'measurementcreateview_plant' plant.id %}" class="btn btn-xs btn-default measure-plants-button"><i class="fa fa-flask"></i></a>
+                    {% endif %}
+                  </div>
+                  <div class="col-xs-2">
+                    {% if 'change_grow' in user_grow_perms and not grow.completed%}
+                      {% get_plant_stage_change_menu plant %}
+                    {% else %}
+                      {{ plant.get_current_stage }}
+                    {% endif %}
+                  </div>
+                  <div class="col-xs-2 text-center">
+                      <div class="btn-group">
+                          <a type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+                              <i class="glyphicon glyphicon-option-vertical" ></i>
+                          </a>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="{% url 'photolistview_plant' plant.id %}" title="View Photo Gallery for {{ plant }}"><i class="glyphicon glyphicon-camera"></i> View Photos</a></li>
+                            {% if 'change_grow' in user_grow_perms and not grow.completed %}
+                              <li><a href="#" class="rename-plant-button" data-plantid="{{ plant.id }}"><i class="glyphicon glyphicon-pencil"></i> Rename Plant</a></li>
+                              <li><a href="#" class='rename-group-plant-button' data-group="{{ group }}" data-growid="{{ grow.id }}" data-plantid="{{ plant.id }}" title="Change Group"><i class="glyphicon glyphicon-pencil"></i> Change Group</a></li>
+                              <li><a href="#" class="delete-plant-button" data-plant-id="{{ plant.id }}"><i class="glyphicon glyphicon-trash"></i> Delete Plant</a></li>
+                            {% endif %}
+                          </ul>
+                      </div>
+                  </div>
+                </div>
+              {% endfor %}
+              </div>
+
+              <!-- Group FAB -->
+              {% if 'change_grow' in user_grow_perms and not grow.completed %}
+              <a href="{% url 'measurementcreateview_group' grow.id group %}"
+                 class="btn btn-circle btn-lg btn-primary pull-right"
+                 data-group="{{ group }}"
+                 data-growid="{{ grow.id }}"
+                 style="position:absolute;right:0px;bottom:0px;" ><i class="fa fa-flask"></i></a>
+              {% endif %}
+              <!-- End FAB -->
+            </div>
+            </div>
+          </div>
+          </div>
+          {% endfor %}
+          </div>
+
+      {% else %}
+        <div class="well text-center">
+          <h4>You don't have any plants yet.</h4>
+          {% if 'change_grow' in user_grow_perms %}
+          <button class="btn btn-primary add-plant-button" data-growid="{{ grow.id }}"><i class="glyphicon glyphicon-leaf"></i> Add Plant</button>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% include "core/add_plant_modal.html" %}
+{% include "core/rename_group_modal.html" %}
+{% include "core/includes/_rename_plant_modal.html" %}
+{% include "core/share_modal.html" %}
+
+{% endblock %}

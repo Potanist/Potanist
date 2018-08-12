@@ -1,0 +1,159 @@
+<script type="text/javascript">
+$(document).ready(function(){
+    var privacy_button_selected = $('#btn-privacy-level input[value^='+privacy_level+']');
+    $('#btn-privacy-level input[value^='+privacy_level+']').attr('checked', true);
+    $('#btn-privacy-level input[value^='+privacy_level+']').parent().addClass('active');
+    $('#share-link').val(window.location);
+
+    $('.share-button').click(function(){
+        $('#share-modal .modal-message').empty();
+        $('#share-modal').modal();
+        Dajaxice.core.get_shared_users_for_grow(get_shared_users_for_grow_callback, {'grow_id': grow_id});
+        $('#share-with-add-button').hide();
+        $('#share-user-input').val('');
+    });
+
+    $("#btn-privacy-level :input").change(function() {
+        $('#btn-privacy-level').hide();
+        $('#privacy-spinner').removeClass('hidden');
+        Dajaxice.core.ajax_set_grow_privacy_level(change_privacy_level_callback, {'grow_id': grow_id, 'privacy_level': $(this).val()})
+    });
+
+    $(document).on('change', '.btn-user-share-level :input', function() {
+        console.log("Foo!");
+        share_with_user($(this).attr('data-target-user'), $(this).val());
+    });
+
+    $('#share-user-input').keyup(function(e) {
+        var user = $(this).val();
+        if(user.length <= 0){
+            $('#share-with-add-button').hide();
+        }
+        else{
+            $('#share-with-add-button').show();
+        }
+        if(e.which == 13 && $(this).val().length > 0) {
+            // $(this).prop('disabled', true);
+            share_with_user(user, 'view');
+        }
+    });
+
+    $('#share-with-add-button').click(function(){
+        var user = $('#share-user-input').val();
+        share_with_user(user, 'view');
+    });
+
+    $('#share-link-button').click(function(){
+        $('#share-link').select();
+        document.execCommand("copy");
+        $('#share-link-label').tooltip({'title': 'Copied to Clipboard!', 'trigger':'manual'});
+        $('#share-link-label').tooltip('show');
+        setTimeout("$('#share-link-label').tooltip('hide');", 3000);
+    });
+});
+
+function change_privacy_level_callback(data) {
+    $('#privacy-spinner').addClass('hidden');
+    $('#btn-privacy-level').show();
+    $('#share-modal .modal-message').empty();
+    if (data.msg) {
+        show_alert('#share-modal .modal-message', 'success', data.msg);
+    }
+    if (data.error) {
+        show_alert('#share-modal .modal-message', 'danger', data.error);
+    }
+}
+
+
+function share_with_user(target_user, share_level){
+    if(target_user.length <= 0){
+        show_alert('#share-modal .modal-message', 'warning', 'The username you entered was blank, please enter a username.')
+    }
+    var kwargs = {'grow_id': grow_id,
+                  'target_user': target_user,
+                  'share_level': share_level};
+    Dajaxice.core.ajax_set_user_share_level(set_user_share_level_callback, kwargs);
+}
+
+function set_user_share_level_callback(data){
+    for(var i=0; i<data.alerts.length; i++){
+        console.log(i);
+        var alert = data.alerts[i];
+        var alert_type = alert.type;
+        var alert_msg = alert.msg;
+        show_alert('#share-modal .modal-message', alert_type, alert_msg)
+    }
+    if(data.hasOwnProperty('data')){
+        Dajaxice.core.get_shared_users_for_grow(get_shared_users_for_grow_callback, {'grow_id': grow_id});
+    }
+}
+
+function get_shared_users_for_grow_callback(data){
+    if(data.hasOwnProperty('data')){
+        $('#shared-with').html(data.data);
+    }
+    $('#share-with-add-button').hide();
+    $('#share-user-input').val('');
+}
+
+</script>
+
+<div class="modal fade" id="share-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Grow Sharing</h4>
+      </div>
+      <div class="modal-body">
+          <div class="modal-message">
+
+          </div>
+          <strong>Visibility:</strong>
+          <i class="glyphicon glyphicon-question-sign" data-toggle="popover"
+             data-title="Help" data-trigger="hover" data-delay="50"
+             data-content="<strong>Published:</strong> Published grows are viewable by anyone and may be
+                            published in feeds across the site. <br/><br/>
+                            <strong>Hidden:</strong> Hidden grows are viewable by anyone with the URL for the grow.<br/><br/>
+                            <strong>Private:</strong> Private grows may be viewed only by other users that you specify." data-html="true"></i>
+          <div id="privacy-spinner" class="pull-right hidden">
+                <i class="fa fa-circle-o-notch fa-spin"></i>
+          </div>
+          <div id="btn-privacy-level" class="btn-group pull-right" data-toggle="buttons">
+            <label class="btn btn-primary btn-sm">
+              <input type="radio" name="options" id="btn-privacy-level-published" value="published" autocomplete="off">Published
+            </label>
+            <label class="btn btn-primary btn-sm">
+              <input type="radio" name="options" id="btn-privacy-level-hidden" value="hidden" autocomplete="off">Hidden
+            </label>
+            <label class="btn btn-primary btn-sm">
+              <input type="radio" name="options" id="btn-privacy-level-private" value="private"  autocomplete="off">Private
+            </label>
+          </div><br/>
+
+          <div class="input-group" id="share-link-button" style="margin-top:20px;">
+            <span class="input-group-addon" id="share-link-label"><i class="glyphicon glyphicon-link"></i> Share Link</a></span>
+            <input type="text" id="share-link" class="form-control" aria-describedby="basic-addon1">
+          </div>
+
+
+          <hr>
+          <strong>Shared With:</strong><br/>
+            <div id="shared-with">
+
+            </div>
+            <div class="input-group" style="margin-top:5px;">
+              <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
+              <input type="text" id="share-user-input" class="form-control" placeholder="Username or E-mail" aria-describedby="basic-addon1">
+              <span class="input-group-btn" id="share-with-add-button">
+                <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-plus"></i></button>
+              </span>
+            </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>

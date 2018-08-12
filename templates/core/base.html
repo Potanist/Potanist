@@ -1,0 +1,89 @@
+{% load staticfiles dajaxice_templatetags piwik %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- meta -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{% block meta_description %}
+Potanist is the community for marijuana homegrowers. Stop growing in the dark and start growing better pot!
+{% endblock %}">
+
+<title>{% block head_title %} - Potanist | Grow Better Marijuana{% endblock %}</title>
+
+<!-- javascript includes -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="{% static 'shared/js/shared.js' %}"></script>
+
+<!-- Todo: Move this to its own javascript file -->
+<script type="text/javascript">
+$(document).ready(function(){
+var $_Tawk_API={},$_Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/566f35f0b4da928f3f6c626e/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+});
+</script>
+{% dajaxice_js_import %}
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+<!-- styling includes -->
+<link rel="stylesheet" href="{% static 'packages/bootstrap/css/bootstrap.min.css' %}" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="{% static 'core/css/homepage.css' %}"> <!-- Todo: Clean up homepage.css -->
+<link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}"> <!-- Todo: CLean up base.css, probably combine homepage.css and base.css -->
+
+
+{% block head %}
+{% endblock %}
+
+</head>
+
+<body>
+    <!-- navbar -->
+    {% include "core/includes/navbar.html" %}
+
+    
+    <!-- Begin subnav -->
+    {% if messages %}
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12"  style="margin-top:20px;">
+              {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }}" style="margin-top:10px;" role="alert">{{ message }}</div>
+              {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <!-- End subnav -->
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- footer -->
+    {% block footer %}
+      {% include "core/includes/footer.html" %}
+    {% endblock %}
+
+
+
+    <script src="{% static 'packages/bootstrap/js/bootstrap.min.js' %}"></script>
+    {% piwik %}
+  </body>
+</html>

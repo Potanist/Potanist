@@ -1,0 +1,42 @@
+{% extends "core/base.html" %}
+
+{% load i18n widget_tweaks %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  <h1>{% trans "Complete your registration" %}</h1>
+
+  <p>{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You are about to use your {{provider_name}} account to login to
+{{site_name}}. As a final step, please complete the following form:{% endblocktrans %}</p>
+
+
+<div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+        <span class="text-danger">{{ form.non_field_errors }}</span>
+        <form class="signup form-horizontal" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+          {% csrf_token %}
+
+          {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+          {% endfor %}
+          {% for field in form.visible_fields %}
+            <div class="form-group">
+              <label class="col-sm-4 control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+              <div class="col-sm-8">
+                  {{ field|add_class:"form-control" }}
+                  <div class="text-danger">{{ field.errors }}</div></div>
+            </div>
+          {% endfor %}
+
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <button class="btn btn-primary" type="submit">{% trans "Sign Up" %} &raquo;</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

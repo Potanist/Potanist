@@ -1,0 +1,55 @@
+<script type="text/javascript">
+function show_rename_group_modal(kwargs){
+    $('#renamegroupmodal').modal();
+    $('#renamegroup-growid').val(kwargs['grow_id']);
+    $('#renamegroup-curgroup').val(kwargs['cur_group']);
+    $('#renamegroup-name').val(kwargs['cur_group']);
+    $('#renamegroup-plantid').val(kwargs['plant_id'])
+}
+
+function change_plant_group_callback(data){
+    $('#renamegroupmodal').modal('hide');
+    location.reload();
+}
+
+$(document).ready(function(){
+    $('#renamegroup-save').click(function(){
+        var kwargs = {};
+        var plantid_val = $('#renamegroup-plantid').val();
+        var growid_val = $('#renamegroup-growid').val();
+        var curgroup_val = $('#renamegroup-curgroup').val();
+        if(plantid_val){
+            kwargs['id'] = plantid_val;
+        }
+        else if(growid_val && curgroup_val){
+            kwargs['grow_id'] = growid_val;
+            kwargs['group'] = curgroup_val;
+        }
+
+        kwargs['new_group'] = $('#renamegroup-name').val();
+
+        Dajaxice.core.ajax_change_plant_group(change_plant_group_callback, kwargs);
+    })
+});
+</script>
+
+<div id="renamegroupmodal" class="modal fade" tabindex="-1" role="dialog" aria-groupledby="mySmallModalgroup">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-group="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalgroup">Rename group</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="renamegroup-name">Name: </label>
+          <input id="renamegroup-name" name="renamegroup-name" type="text" class="form-control">
+          <input id="renamegroup-curgroup" type="hidden">
+          <input id="renamegroup-growid" type="hidden">
+          <input id="renamegroup-plantid" type="hidden">
+        </div>
+        <a href="#" id="renamegroup-save" class="btn btn-primary">Save</a>
+      </div>
+    </div>
+  </div>
+</div>

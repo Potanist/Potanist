@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+{% load staticfiles static guardian_tags %}
+
+{% block head %}
+<script type="text/javascript">
+var confirm_against = "{{ object.name|safe }}";
+
+$(function() {
+    $('#confirm-delete-button').click(function(e){
+        var $confirm_input = $('#confirm-input');
+        var confirm_value = $confirm_input.val();
+        if(confirm_value != confirm_against){
+            $confirm_input.parent().addClass('has-error');
+            $confirm_input.siblings('.error-msg-container').text('The text you entered does not match the grow name!')
+            e.preventDefault();
+        }
+    })
+});
+</script>
+{% endblock %}
+
+
+{% block nav %}
+{% include 'core/dashboard_nav.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="container" >
+  <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+      <div class="alert alert-danger"><strong>Danger!</strong> Deleting a grow cannot be undone. When you delete a grow, all plants,
+      measurements, and photos for that grow will also be deleted. Proceed only if you understand that the data will be
+      permanently deleted!</div>
+      <strong>Grow:</strong> {{ object.name }}<br/>
+      <strong># Plants:</strong> {{ object.plant_set.all|length }}<br/>
+      <strong># Pictures:</strong> {{ object.photo_set.all|length }}<br/>
+      <br/>
+      <form action="" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+              <label class="control-label" for="confirm-input">Please type in the name of the grow to confirm the above warning:</label>
+              <input id="confirm-input" class="form-control" placeholder="Enter Grow Name"><br/>
+              <span class="error-msg-container text-danger"></span>
+          </div>
+          <button class="btn btn-danger" id="confirm-delete-button"><i class="glyphicon glyphicon-trash"></i> Yes, delete it</button>
+          <a class="btn btn-default" href="{% url 'growdetails_view' object.id %}">No, do not delete it</a>
+      </form>
+
+      </div>
+  </div>
+
+</div>
+
+
+{% endblock %}

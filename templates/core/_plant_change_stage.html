@@ -1,0 +1,8 @@
+<div class="btn-group">
+  <button type="button" class="btn btn-xs btn-default dropdown-toggle change-stage-button" data-toggle="dropdown" data-value="{{ current_stage }}" data-plant="{{ plant.pk }}">{{ current_stage }} <span class="caret"></span></button>
+  <ul class="dropdown-menu change-stage-list">
+    {% for stage in other_stages %}
+    <li><a href="#" class="change-stage-option" data-target="{{ plant.pk }}" data-value="{{ stage }}">{{ stage }}</a></li>
+    {% endfor %}
+  </ul>
+</div>

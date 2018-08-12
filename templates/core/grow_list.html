@@ -1,0 +1,66 @@
+{% extends 'core/base.html' %}
+{% load staticfiles %}
+{% load core_tags %}
+
+
+{% block head_title %}Dashboard {{ block.super }}{% endblock %}
+{% block head %}
+<script type="text/javascript" src="{% static 'core/js/dashboard.js' %}"></script>
+{% endblock %}
+
+
+{% block nav %}
+{% include 'core/dashboard_nav.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container pad-between-nav">
+  <div class="row">
+    <div class="col-xs-12" style="margin-bottom:20px;">
+        <div id="grow-type-radio-button" class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary {% if filter == 'active' %}active{% endif %}">
+            <input type="radio" name="options" id="grow-type-radio-button-active" value="active" autocomplete="off">Active Grows
+          </label>
+          {% if archived_size > 0 %}
+          <label class="btn btn-primary {% if filter == 'archived' %}active{% endif %}">
+            <input type="radio" name="options" id="grow-type-radio-button-archived" value="archived" autocomplete="off">Archived Grows
+          </label>
+          {% endif %}
+          {% if shared_size > 0 %}
+          <label class="btn btn-primary {% if filter == 'shared' %}active{% endif %}">
+            <input type="radio" name="options" id="grow-type-radio-button-shared" value="shared" autocomplete="off">Shared With Me
+          </label>
+          {% endif %}
+        </div>
+    </div>
+
+
+    {% for grow in object_list %}
+    <div class="col-xs-12 col-sm-6 col-lg-3 grow-container grow-type-{{ grow.type }}" {% if grow.type != filter %}style="display:none"{% endif %}>
+      <div class="well well-sm" onclick="location.href=''">
+        <h3 class="text-center"><a class="btn btn-lg btn-success grow-list-button" href="{% url 'growdetails_view' grow.pk %}" title="{{ grow.name }}">{{ grow.name }}</a></h3>
+        <div class="row">
+            <div class="col-xs-6"><h3 class="text-center"><i class="glyphicon glyphicon-time"></i></h3><h6 class="text-center">Started: {{ grow.start_date }}</h6></div>
+            <div class="col-xs-6"><h3 class="text-center"><i class="glyphicon glyphicon-leaf"></i></h3><h6 class="text-center">Plants: {{ grow.plant_set.all|length }}</h6></div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    {% if filter == 'active' and active_size == 0 %}
+    <div class="col-xs-12" id="no-active-grows-container">
+      <div class="well well-sm text-center">
+        <h3 class="text-center">You don't have any active grows. Start a new grow by clicking the button below.</h3>
+        <a class="btn btn-lg btn-success" href="{% url 'creategrow_view' %}">{{ grow.name }}<i class="glyphicon glyphicon-plus"></i> Create New Grow</a></h3>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% include "core/add_plant_modal.html" %}
+{% include "core/rename_group_modal.html" %}
+
+{% endblock %}

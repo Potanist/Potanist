@@ -1,0 +1,52 @@
+{% extends "core/base.html" %}
+
+{% load i18n account socialaccount widget_tweaks %}
+{% block head_title %}{% trans "Signup" %} {{ block.super }}{% endblock %}
+{% block meta_description %}Sign Up for Potanist, the new community for marijuana homegrowers.{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1>{% trans "Sign Up" %}</h1>
+
+    <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+    {% if form.non_field_errors %}
+    <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6" style="border-right:1px solid #cccccc;">
+            <form class="form-horizontal" method="POST" action="{% url 'account_signup' %}">
+                {% csrf_token %}
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+
+                {% for field in form.visible_fields %}
+                    <div class="form-group">
+                      <label class="col-sm-3 col-md-2 control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                      <div class="col-sm-9 col-md-10">
+                          {{ field|add_class:"form-control" }}
+                          <div class="text-danger">{{ field.errors }}</div>
+                      </div>
+                    </div>
+                {% endfor %}
+
+              <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9 col-md-offset-2">
+                  <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+                </div>
+              </div>
+            </form>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+            <h5 class='hr-text'>Or sign up with your social account:</h5>
+            {% include "account/snippets/provider_list.html" with process="signup" %}
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

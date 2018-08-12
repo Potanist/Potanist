@@ -1,0 +1,24 @@
+{% if user_perms|length %}
+    {% for user, perms in user_perms.items %}
+    <div class="row" style="margin-top:5px;">
+        <div class='col-xs-6'><i class="glyphicon glyphicon-user"></i> {{ user.username }}</div>
+        <div class='col-xs-6 text-right'>
+
+            <div class="btn-group btn-user-share-level" data-toggle="buttons">
+              <label class="btn btn-xs btn-primary {% if not 'change_grow' in perms %}active{% endif %}" >
+                <input type="radio" data-target-user="{{ user.username }}" value="view" autocomplete="off">View Only
+              </label>
+              <label class="btn btn-xs btn-primary {% if 'change_grow' in perms %}active{% endif %}">
+                <input type="radio" data-target-user="{{ user.username }}" value="edit" autocomplete="off">Can Edit
+              </label>
+              <label class="btn btn-xs btn-danger">
+                  <input type="radio" data-target-user="{{ user.username }}" value="remove" autocomplete="off">Remove
+              </label>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <em>You aren't sharing this grow with anyone yet. You may add a user below.</em><br/>
+{% endif %}

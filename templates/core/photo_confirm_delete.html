@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+{% load staticfiles static guardian_tags %}
+
+{% block head %}
+{% endblock %}
+
+
+{% block nav %}
+{% include 'core/dashboard_nav.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid " >
+  <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3">
+      <strong>Are you sure you would like to delete this photo?</strong>
+      <form action="" method="post">
+          {% csrf_token %}
+          <button class="btn btn-danger">Yes, delete it</button>
+          <a class="btn btn-default" href="{% url 'photodetail_view' object.id %}">No, do not delete it</a>
+      </form>
+
+      </div>
+  </div>
+  <div class="row" style="margin-top:15px;">
+      <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3">
+          <img src="{% get_media_prefix %}{{ photo.img }}" class="img-thumbnail" style="width:100%; height:auto;"><br/>
+          <strong>Taken At:</strong><br/>
+          {{ object.taken_timestamp }}<br/><br/>
+
+          <strong>Description:</strong><br/>
+          {{ object.description|default:"<em>None provided</em>" }}<br/><br/>
+      </div>
+  </div>
+
+</div>
+
+
+{% endblock %}

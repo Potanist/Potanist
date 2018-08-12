@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+{% load staticfiles static %}
+
+{% block head %}
+<script type="text/javascript" src="{% static 'packages/masonry/masonry.pkgd.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var $photo_row = $('.photo-row').masonry();
+    $photo_row.imagesLoaded().progress(function() {
+        $photo_row.masonry('layout');
+    });
+
+});
+</script>
+{% endblock %}
+
+
+{% block nav %}
+{% include 'core/dashboard_nav.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid" >
+  <div class="row">
+      <div class="col-xs-12">
+          {% if messages %}
+          {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}" style="margin-top:10px;" role="alert">{{ message }}</div>
+          {% endfor %}
+          {% endif %}
+          <h3>
+              Photos for {{ plant_obj|default:grow_obj }}
+
+              <span class="pull-right"><a class="btn btn-primary" href="{% spaceless %}
+              {% if plant_obj %}{% url 'photocreateview_plant' plant_obj.id %}
+              {% elif grow_obj %}{% url 'photocreateview_grow' grow_obj.id %}
+              {% endif %}
+              {% endspaceless %}"><i class="glyphicon glyphicon-plus"></i> Add Photo</a></span>
+
+
+
+          </h3>
+      </div>
+  </div>
+  <div class="row photo-row">
+    {% for photo in object_list %}
+    <div class="col-xs-6 col-md-3 col-lg-2" style="margin-top:15px; margin-bottom:15px;">
+        <a href="{% url 'photodetail_view' photo.pk %}">
+        <img src="{% get_media_prefix %}{{ photo.img }}" class="img-thumbnail" style="width:100%; height: auto;">
+        </a>
+    </div>
+    {% endfor %}
+
+  </div>
+
+</div>
+
+
+{% endblock %}

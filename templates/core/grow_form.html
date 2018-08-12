@@ -1,0 +1,20 @@
+{% extends "core/generic_form.html" %}
+{% block content %}
+
+{{ block.super }}
+
+{% if object.pk %}
+    {% if not user_object_perms %}
+        {% load guardian_tags %}
+        {% get_obj_perms request.user for object as "user_object_perms" %}
+    {% endif %}
+    {% if 'delete_grow' in user_object_perms %}
+        <div class="container">
+            <hr>
+            <h3>Delete Grow</h3>
+            <a href="{% url 'growdelete_view' grow.id %}" class="btn btn-large btn-danger"><i class="glyphicon glyphicon-trash"></i> Delete</a>
+        </div>
+    {% endif %}
+{% endif %}
+
+{% endblock %}

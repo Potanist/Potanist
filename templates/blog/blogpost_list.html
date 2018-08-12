@@ -1,0 +1,29 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+{% block head_title %}Blog {{ block.super }}{% endblock %}
+{% block meta_description %}Check out the latest in marijuana homegrow news.{% endblock %}
+
+{% block content %}
+<div class="container pad-between-nav">
+    <script src="{% static 'packages/markdown-browser-0.6.0-beta1/markdown.min.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.blog-body').each(function(){
+                $(this).html(markdown.toHTML($(this).html()));
+            })
+        });
+    </script>
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Potanist Blog</h1>
+        </div>
+        {% for blog in blogpost_list %}
+        <div class="col-xs-12" style="margin-bottom:30px;">
+            <h2><a href="{% url 'blogpost_detailview' blog.pk %}">{{ blog.title }}</a></h2>
+            <h5>Posted by {{ blog.author }} on {{ blog.cre_date }}</h5>
+            <div class="blog-body">{{ blog.body }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

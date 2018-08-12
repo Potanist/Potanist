@@ -1,0 +1,53 @@
+{% load core_tags staticfiles %}
+{% get_user_grows as user_grows %}
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'homepage_view' %}"><img src="{% static 'core/img/logo.svg' %}" style="height: 25px;"></a>
+    </div>
+
+    {% block nav %}
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        {% if request.user.is_authenticated %}
+          <!-- Authenticated User Navbar -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Grows <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              {% for grow in user_grows %}
+                <li><a href="{% url 'growdetails_view' grow.pk %}">{{ grow.name }}</a></li>
+              {% endfor %}
+              {% if user_grows|length > 0 %}<li role="separator" class="divider"></li>{% endif %}
+              <li><a href="{% url 'creategrow_view' %}">New Grow</a></li>
+            </ul>
+          </li>
+
+          <li {% if request.path|slice:":6" == '/blog/' %}class="active"{% endif %}><a href="{% url 'blog_view' %}">Blog</a></li>
+          <li {% if request.path == '/guide' %}class="active"{% endif %}><a href="{% url 'growguide_view' %}">Grow Guide</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <span class="glyphicon glyphicon-user"></span> {{ request.user }} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+          </li>
+
+        {% else %}
+          <!-- Anonymous User Navbar -->
+          <li {% if request.path == '/' %}class='active'{% endif %}><a href="{% url 'homepage_view' %}">Home</a></li>
+          <li {% if request.path|slice:":6" == '/blog/' %}class="active"{% endif %}><a href="{% url 'blog_view' %}">Blog</a></li>
+          <li {% if request.path == '/guide' %}class="active"{% endif %}><a href="{% url 'growguide_view' %}">Grow Guide</a></li>
+          <li {% if request.path == '/accounts/login/' %}class="active"{% endif %}><a href="{% url 'account_login' %}"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+        {% endif %}
+      </ul>
+    </div>
+    {% endblock %}
+  </div>
+</nav>

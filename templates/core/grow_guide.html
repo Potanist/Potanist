@@ -1,0 +1,917 @@
+{% extends "core/base.html" %}
+{% load staticfiles socialaccount widget_tweaks %}
+{% block head_title %}Grow Guide {{ block.super }}{% endblock %}
+{% block meta_description %} Read Potanist's guide to growing marijuana at home.{% endblock %}
+{% block content %}
+<style type="text/css">
+
+/* sidebar */
+.bs-docs-sidebar {
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* all links */
+.bs-docs-sidebar .nav>li>a {
+    color: #666;
+    border-left: 2px solid transparent;
+    padding: 4px 20px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/* nested links */
+.bs-docs-sidebar .nav .nav>li>a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+}
+
+/* active & hover links */
+.bs-docs-sidebar .nav>.active>a,
+.bs-docs-sidebar .nav>li>a:hover,
+.bs-docs-sidebar .nav>li>a:focus {
+    color: #008000;
+    text-decoration: none;
+    background-color: transparent;
+    border-left-color: #008000;
+}
+/* all active links */
+.bs-docs-sidebar .nav>.active>a,
+.bs-docs-sidebar .nav>.active:hover>a,
+.bs-docs-sidebar .nav>.active:focus>a {
+    font-weight: 700;
+}
+/* nested active links */
+.bs-docs-sidebar .nav .nav>.active>a,
+.bs-docs-sidebar .nav .nav>.active:hover>a,
+.bs-docs-sidebar .nav .nav>.active:focus>a {
+    font-weight: 500;
+}
+
+/* hide inactive nested list */
+.bs-docs-sidebar .nav ul.nav {
+    display: none;
+}
+/* show active nested list */
+.bs-docs-sidebar .nav>.active>ul.nav {
+    display: block;
+}
+
+
+.fixed {
+    position: fixed;
+}
+
+</style>
+<div class="container pad-between-nav">
+    <div class="row">
+        <div class="col-xs-12 col-md-10" style="font-size:18px;">
+            <div class="topic">
+                <p>Welcome to the Potanist Grow Guide! This text has been built on the
+                    <a href="https://en.wikibooks.org/wiki/Marijuana_Cultivation">&quot;Marijuana Cultivation&quot;</a> book from
+                    WikiBooks. This content is licensed under the
+                    <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 license</a></p>
+
+            </div>
+
+            <div class="section" id="cannabis-cultivation">
+            <h1><a class="toc-backref" href="#cannabis-cultivation">Cannabis Cultivation</a></h1>
+            <div class="section" id="introduction">
+            <h2><a class="toc-backref" href="#introduction">Introduction</a></h2>
+            <div class="section" id="purpose">
+            <h3><a class="toc-backref" href="#purpose">Purpose</a></h3>
+            <p>This book is to provide instruction on the use and cultivation of marijuana, also known as cannabis or hemp. In this book you will find all the information needed to go from seed to a fully functioning garden.</p>
+            </div>
+            <div class="section" id="disclaimer">
+            <h3><a class="toc-backref" href="#disclaimer">Disclaimer</a></h3>
+            <p>The information contained in this book is intended for use only in jurisdictions where the activities contained therein are legal. No claim of the accuracy, safety, or the legality of following the instructions contained in this book is made and it is not recommended to follow them. You are responsible for your own actions if you do so. Nothing contained in this book should be construed to be legal or medical advice.</p>
+            </div>
+            <div class="section" id="how-to-use">
+            <h3><a class="toc-backref" href="#disclaimer">How to Use</a></h3>
+            <p>This book is not designed to be read straight through. Information is organized by topic, although you can certainly read everything through you can also jump right to the topic you are interested in.</p>
+            </div>
+            <div class="section" id="copyright">
+            <h3><a class="toc-backref" href="#copyright">Copyright</a></h3>
+            <p>Copyright (C) 2009 Michael Fread</p>
+            <p>This text is licensed under the open licensing terms of the Wikibooks project so long as this copyright notice remains intact. It has been donated for free and collaborative use for the benefit of all those who need, want, or enjoy this plant which is capable of industrial utility, medical potency, recreational happiness, and even supplying the complete nutritional needs of the hungry.</p>
+            <p>Any part of this may be modified according to the terms of the aforementioned license but this section must remain intact.</p>
+            </div>
+            </div>
+            <div class="section" id="fundamentals">
+            <h2><a class="toc-backref" href="#fundamentals">Fundamentals</a></h2>
+            <div class="section" id="of-myths-and-magic">
+            <h3><a class="toc-backref" href="#of-myths-and-magic">Of Myths and Magic</a></h3>
+            <p>There is certainly as much myth and folklore spreading around about marijuana usage and cultivation as anything else. This book attempts to slash through those myths to actual proven and utilized techniques that have been put into practice. It is highly recommended that you consider the tested information in this book as a primary source of information and doubt conflicting third party information until it is proven to you.</p>
+            <p>Some common myths that are seen include the use of menstrual blood for flowering. The claim that baking soda and vinegar will kill plants if used to adjust PH. Some people claim that absolutely any light level whatsoever will destroy crops and others claim that a couple hours of light in the middle of the dark cycle will improve the size of flowers. If you want to know the truth about these claims just dive on in ahead. Everything you need to grow high quality, potent, and high yielding marijuana plants is contained in these pages.</p>
+            </div>
+            <div class="section" id="parts-of-the-plant">
+            <h3><a class="toc-backref" href="#parts-of-the-plant">Parts of the Plant</a></h3>
+            <div class="section" id="flowers">
+            <h4><a class="toc-backref" href="#flowers">Flowers</a></h4>
+            <p>The flowers or Buds of the plant contain the highest concentrations of plant resin which in turn contains the highest concentration of active ingredients. The unpollinated flowers of the female plants are the part of the plant that is used by recreational users because they produce copius amounts of potent plant resin in order to try to catch pollen. Marijuana is one of the few plants today that actually is split by gender and has distinct separate male and female plants. Female plants do not pollinate themselves in the absence of males but do contain the genetic capability to produce male flowers and may do so under stress. There are also hermaphrodite plants that produce both male and female flowers. Male plants and male flowers are not very potent and are not used recreationally</p>
+            <div class="section" id="leaves">
+            <h5><a class="toc-backref" href="#leaves">Leaves</a></h5>
+            <p>Leaves are generally not used recreationally and will generally give you a headache rather than get you high. There are however ways to extract the active ingredients from leaves and the different types of leaves have different potencies.</p>
+            <div class="section" id="large-shade-leaves">
+            <h6><a class="toc-backref" href="#large-shade-leaves">Large Shade Leaves</a></h6>
+            <p>These are the large classically shaped leaves on the plant and are the least potent. There are extraction methods that can be performed to get something useful out of these but the result won't be very pure and many growers just throw them away.</p>
+            </div>
+            <div class="section" id="grow-tips">
+            <h6><a class="toc-backref" href="#grow-tips">Grow Tips</a></h6>
+            <p>These clusters of small tender leaves are the point on the plant where new growth sprouts from during vegetation. They are more potent than Shade leaves but less potent than trim leaves or bud.</p>
+            </div>
+            <div class="section" id="trim-leaves">
+            <h6><a class="toc-backref" href="#trim-leaves">Trim Leaves</a></h6>
+            <p>These are the sugar coated leaves that are trimmed from around the buds during harvest. The sugar coating of trichomes can make these quite potent and they can be as potent as low quality flower</p>
+            </div>
+            </div>
+            <div class="section" id="stems">
+            <h5><a class="toc-backref" href="#stems">Stems</a></h5>
+            <p>The stems are not really useful for psychoactive purposes but they are a great source of plant fiber for rope, paper, etc. You can also grind and make high cbd concentrate. I recycle every part of the plant and in some way consume it or turn into a topical lotion. Stems are more useful than you would think. Try to chew one next time you break a bud off and enjoy.</p>
+            </div>
+            <div class="section" id="seeds">
+            <h5><a class="toc-backref" href="#seeds">Seeds</a></h5>
+            <p>The seeds generally contain only trace amounts of psychoactive ingredients but they are one of the most nutritious foods currently known to man. They are one of only a handful of substances that man can sustain off indefinitely with no other food and provide all known amino acids.</p>
+            </div>
+            <div class="section" id="trichomes">
+            <h5><a class="toc-backref" href="#trichomes">Trichomes</a></h5>
+            <p>Despite their minute size, it’s hard to miss the blanket of crystal resin on a cannabis bud. This resin (or “kief” when dry) is secreted through translucent, mushroom-shaped glands on the leaves, stems, and calyxes. Trichomes were originally developed to protect the plant against predators and the elements. These clear bulbous globes ooze aromatic oils called terpenes as well as therapeutic cannabinoids like THC and CBD. The basis of hash production depends on these trichomes and their potent sugar-like resin.</p>
+            </div>
+            <div class="section" id="roots">
+            <h5><a class="toc-backref" href="#roots">Roots</a></h5>
+            <p>The purpose of the roots is served when the plant is harvested. They have no useful levels of psychoactive ingredients and aren't typically eaten or smoked. There is a rumor that roots have high CBD content but lab analysis has shown THC and CBD ratios similar to the rest of the plant but in dramatically lower concentrations.[1] The source of the rumor appears to be an online news article.</p>
+            </div>
+            </div>
+            </div>
+            <div class="section" id="inside-vs-outside">
+            <h3><a class="toc-backref" href="#inside-vs-outside">Inside vs Outside</a></h3>
+            <p>This is probably the single biggest divider of growers that there is. Do you grow outdoors under the big bright sun or indoors in a room or closet? There are definitely pros and cons to either method.</p>
+            <div class="section" id="inside">
+            <h4><a class="toc-backref" href="#inside">Inside</a></h4>
+            <p>The benefits of an indoor grow are not necessarily immediately realized. It is obvious that an indoor grow affords more privacy but the biggest benefit of an indoor grow is control. You can control what type of light is provided, how often its provided and the hours. You can control the temperature and humidity of your grow environment to make them optimal for the plant. You can easily switch between hydroponic and organic growing. Indoors you will have a smaller harvest (plants simply aren't going to grow as large without a light as large as the sun) but you will be able to use lights to have plants in varied stages of growth at all times so you can harvest more plants more often. Indoors you might be able to harvest every two months in an established garden or even more often in a larger grow.</p>
+            </div>
+            <div class="section" id="outside">
+            <h4><a class="toc-backref" href="#outside">Outside</a></h4>
+            <p>The benefits of an outdoor grow are obvious, you don't need to worry about ventilation or light. The sun provides 2000 watts per square foot of bright light and that is certainly more than any indoor grower is likely to have at his disposal any time soon. Make no mistake that light difference is important! The air is fresh and plentiful and will deliver all the CO2 that your plants will ever need. Organic nutrients can be found in the soil and if they can't in your location you can always prep your soil. Finally the roots of your plants will be able to spread far and wide. There are also downsides to be considered. You have no control over light cycles and must grow on the natural annual harvest cycle, you have absolutely no privacy and some areas require you to take privacy precautions in order to grow for medical use. Outdoors you have open ventilation which means your plants could be pollinated by wild pollen messing up your attempts to breed seed of a certain strain or avoid seed. You are also mostly limited to soil grows outdoors unless you have a greenhouse which is sort of a hybrid of indoor and outdoor growing.</p>
+            </div>
+            </div>
+            <div class="section" id="dirt-vs-hydroponic">
+            <h3><a class="toc-backref" href="#dirt-vs-hydroponic">Dirt vs Hydroponic</a></h3>
+            <p>This selection is very fundamental to how you will grow from here on in. That said, it is possible for a skilled grower to achieve similar results using either method. The myths surrounding this choice are many. There are those who claim that hydroponic (or hydro) bud has a bad, chemically, metallic taste or that soil grown marijuana isn't potent. Although there is plenty of bad tasting hydro and weak soil grown marijuana these differences are caused by poor practices elsewhere in the growing process and not whether soil or hydro is used as the growing method. For instance, hydro growers are often commercial growers who are trying to output as much marijuana in as short a time as possible. These growers do not take the time to purge and cure their plants at the end of the flowering cycle and after harvest. This is rumored to cause the bad taste. It is entirely possible to make this same error with a soil grow.</p>
+            <div class="section" id="dirt">
+            <h4><a class="toc-backref" href="#dirt">Dirt</a></h4>
+            <p>Dirt carries a number of benefits and pitfalls. Dirt is easy to acquire and easy to maintain it is literally all over the ground. Dirt allows you to mix your nutrients into the potting soil rather than having to carefully mix up nutrient solution with each watering. Dirt retains moisture for a period of days so if you go on vacation no special steps will be needed. Dirt buffers the roots of a plant from nutrients and PH fluctuations. This is both good and bad. When you add nutrients they are delivered slowly and it may take longer before the effects of doing this become apparent. It is very easy to over water in a soil grow. This is a common beginner mistake. You should always allow the soil to dry completely to the touch before watering again. This is needed to allow oxygen to get to the roots.</p>
+            <p>The ideal PH for soil grows is 6.5 and can be taken by measuring the runoff when you water. The best way to maintain the PH on a soil grow is to maintain the PH of the water you are using. This range allows the uptake of manganese. The utility of this nutrient in plant growth is debated but what is not debated is that manganese is not available to the plant at the ideal hydro PH.</p>
+            <p>If a PH or nutrient imbalance occurs in a soil grow it may be corrected by flushing with lots of water or using a flushing agent such as clearex. In a pot it should be at least three times the capacity of the pot. Outdoors in the ground you should flush with water thoroughly with a hose or bucket.</p>
+            </div>
+            <div class="section" id="hydroponics">
+            <h4><a class="toc-backref" href="#hydroponics">Hydroponics</a></h4>
+            <p>Hydroponic systems range from very simple to very complex. Essentially the only thing that differentiates a hydro system from a dirt grow is that in a hydroponic system a solution of nutrients and water delivers all nutrients to the plant and the physical medium that the plant grows in is inert with no nutrient content. The advantage of hydroponic methods is that they provide more rapid nutrient availability to the plant. This allows the plant to drink as much nutrient as it likes and produces larger plants in a shorter period of time and smaller space. Popular methods include:</p>
+            <div class="section" id="ebb-and-flow">
+            <h5><a class="toc-backref" href="#ebb-and-flow">Ebb and Flow</a></h5>
+            <p>An ebb and flow system uses a timer to activate a pump that periodically floods the plants grow medium with nutrient solution and then drains the solution out.</p>
+            <p>Often these system are designed using two plastic tubs, one sitting in another. The bottom tub contains the nutrient solution reservoir, the water pump, and an air stone (more oxygen means healthier roots) and the top tub or tray contains the plants. A single hole in the top tub allows the pump tubing into the tub, when the pump shuts off or in the event of a pump failure the water drains right back down the hole it came out of. It is usually best to put another hole where it will drain down to the bottom tub at the highest level you want the water to reach. This prevents flooding. A system like this can run at different intervals depending on the grow medium you use but a common choice is 15min on and off cycles, or 30 minute on and off cycles.</p>
+            <p>Be very careful with a system like this. If a pump failure is not detected plants can die in a very short time period.</p>
+            <p>PH and Nutrient problems can be corrected in the reservoir without the need to fiddle with the plants themselves.</p>
+            </div>
+            <div class="section" id="deep-water-culture">
+            <h5><a class="toc-backref" href="#deep-water-culture">Deep Water Culture</a></h5>
+            <p>Deep water culture is a very popular technique where one bucket is fitted into another. In the bottom bucket is placed an airstone (limewood or porous stone) and in the top bucket holes will be drilled to allow nutrient solution to flood the bucket to a certain level. The airstone provides oxygen to prevent the roots from rotting even though they are submerged. This is a very simple system to build but requires a pot for each plant.</p>
+            <p>Correcting PH and nutrient problems is a matter of changing the solution and rinsing the plant medium with clean water.</p>
+            </div>
+            <div class="section" id="nutrient-film-technique-nft">
+            <h5><a class="toc-backref" href="#nutrient-film-technique-nft">Nutrient Film Technique (NFT)</a></h5>
+            <p>Nutrient film technique involves plants potted so their roots dangle down into a thin film of constantly running nutrient solution. This technique can work well for large scale hydroponic growing operations but if the nutrient film is interrupted it can be devastating. A separate reservoir is maintained in this technique and it is not commonly used in practice.</p>
+            </div>
+            <div class="section" id="aeroponic">
+            <h5><a class="toc-backref" href="#aeroponic">Aeroponic</a></h5>
+            <p>Aeroponics is a relatively new technique. A fine mist of highly oxygenated nutrient solution is sprayed onto the roots of the plant which are suspended in air rather than bound in soil or another medium.</p>
+            </div>
+            <div class="section" id="wick-hempy-bucket">
+            <h5><a class="toc-backref" href="#wick-hempy-bucket">Wick/Hempy Bucket</a></h5>
+            <p>Wick systems and Hempy buckets are very similar. In a wick system a pot with medium has a wick placed down it that extends down into a reservoir and draws up nutrients via capillary action as they are needed or water evaporates. This is much like the way a lantern or wick lighter works, drawing flammable fluid up the wick to be burned until it is exhausted.</p>
+            <p>The hempy bucket is named after the forum poster who claims to have developed it although the concept may date back further. A simple 2.5 to 5 gallon bucket has a 3/4 inch hole drilled about 2-2.5 inches above the bottom. Depending on the medium and size of the medium used it may not be needed but it is common to glue a piece of plastic screening over the hole on the inside of the bucket. This bucket is then filled with a mixture of perlite and vermiculite (popular mixes are 3 parts perlite to 1 part vermiculite and 1 part vermiculite to 1 part perlite).</p>
+            <p>The bucket is then watered with full strength nutrient solution every 3-4 days, you water until nutrient comes out the hole in the bottom. This flushes out any built up nutrient salts with every watering assuring that you have a perfect balance.</p>
+            <p>A hempy is as simple as hydroponics gets and is capable of producing the same yields and quality output as other more complex hydroponic systems. Because it allowed to mostly dry between waterings and pulls nutrients up via perlite wicking the roots are very well oxygenated. Since fresh nutrient is added every 3-4 days there is no reservoir to become imbalanced. Although it looks like dirt the perlite/vermiculite medium is completely inert, it contains no nutrients and provides no PH or nutrient buffer. Plants can drink all the nutrient they want just as in other hydroponic systems.</p>
+            <p>The hempy system has the advantage that because it is simple there are fewer mistakes to be made. Also important is the fact that the hempy bucket has no pumps of any kind that can fail without you noticing. Hempy buckets can be used in a greenhouse outdoors with no power at all. Like a soil grow the medium retains moisture so you can leave the bucket for up to a week with no adverse affects.</p>
+            <p>The downfalls compared with other hydroponic systems are that plants must be moved one by one in buckets if moved. You also must water a hempy bucket by hand every 3-4 days and with a large number of plants that can become very labor intensive. For instance, for someone who could not carry a five gallon bucket filled with water a hempy installation of more than 3-4 plants would probably be unmanageable unless the water source was very close by. Because you flush out the nutrient solution and any unused nutrients in it every few days the hemp bucket also requires more nutrients than other hydroponic methods.</p>
+            </div>
+            <div class="section" id="continuous-drip-system">
+            <h5><a class="toc-backref" href="#continuous-drip-system">Continuous Drip System</a></h5>
+            <p>Another popular technique is the continuous drip system. With a continuous drip a reservoir (often large outdoor garbage cans or 5 gallon buckets) are used with a pump to push nutrients and water through a hose. Some guerrilla growers don't use a pump because they don't have the pressure of a hose to actuate it. The hose will have holes or drip emitters placed at the base of each plant as to get the water right where its needed (the roots).</p>
+            </div>
+            <div class="section" id="consideration-and-pitfalls">
+            <h5><a class="toc-backref" href="#consideration-and-pitfalls">Consideration and Pitfalls</a></h5>
+            <p>It is important with any hydroponic system to remember that there is no buffer. Plants will respond very quickly if there are no nutrients and/or water or the pH of the nutrient solution is incorrect. Roots need high oxygen levels or they will rot. And of course remember that plants need space to grow and should never be planted where their roots will intermingle.</p>
+            <p>Ideal pH level with hydroponic systems is between 5.8 and 6.3 depending on the nutrients that are used, however a consistent pH of 6.0 is very common. The best way to handle a pH adjustment depends on whether you are using a reservoir or not. In a hempy bucket the best solution is to flood with nutrient that is corrected. This will push out the imbalanced nutrient. With a reservoir pH can be adjusted in the same manner as the water with a pH up and pH down solution.</p>
+            </div>
+            </div>
+            </div>
+            <div class="section" id="organic-vs-inorganic">
+            <h3><a class="toc-backref" href="#organic-vs-inorganic">Organic vs Inorganic</a></h3>
+            <p>The organic vs inorganic choice is a hot topic. You don't need a book to help you make any moral decisions so its just the facts here. The plant material that the plant grows is identical in structure and content regardless of which method you use. The plant only uses basic building blocks, taking molecules from the air and the nutrients and assembling them into the plant matter. The by product of this process is oxygen.</p>
+            <p>The real (practical) difference between organic and inorganic growing is how the raw materials are provided. An organic grower will use larger elements that will be broken down by a system of organisms living in the nutrient solution/grow medium or the soil. An inorganic grower uses nutrients that are already broken down into a form that the plant can utilize. Non-organic nutrients might contain organic components. For instance, many fertilizers intended for soil will include urea nitrogen. This nitrogen requires micro-organisms to break it down before the plant can use it. These organisms won't thrive without soil so these fertilizers may not work in hydroponic systems.</p>
+            <p>There are hydroponic mixtures that are organic and there are those which are not. Either way, you have control over what you feed your plants and can insure that no harmful pesticides or other chemicals are used in growing your own marijuana. Provided you flush your plants properly they won't contain any of the nutrient solution so the actual plant material that results should be the same.</p>
+            </div>
+            <div class="section" id="nutrient-selection-and-maintenance">
+            <h3><a class="toc-backref" href="#nutrient-selection-and-maintenance">Nutrient Selection and Maintenance</a></h3>
+            <p>Nutrient selection is a very important part of your growth plan. This book will not advocate any specific nutrient blend or mix but instead will cover nutrients in a more general manner.</p>
+            <p>There are three macro nutrients that must be considered when growing marijuana, (N) Nitrogen, (P) Phosphorus, and (K) Potassium. Almost every plant additive you look at will specify these numbers often in the format N-P-K without actually labeling which is which. These numbers really don't let you compare competing products effectively but they do show you the ratios of one macro ingredient to the next. During the different growth phases you will want different concentrations of these macro nutrients. During vegetative growth you will want high nitrogen and low phosphorus and during flowering you will want high phosphorus and lower nitrogen. It is worth busting another myth here. Many people believe that because there are separate vegetative and flowering formulas that having high P during veg or high N during flowering will hurt things. This simply isn't true. It is wasteful to throw away chemicals that are not needed and there is a maximum nutrient concentration that plants can handle without burning roots. This means that you wouldn't want to trade P for N during flowering. But most flowering formulas actually contain enough N that they could be used during vegetative growth.</p>
+            <p>There are also a number of micro-nutrients needed for growth that must be present. Many major fertilizers for soil do not contain these micro-nutrients because they assume it will be provided in the soil. Always use hydroponic nutrients for hydroponic growing.</p>
+            <p>Regardless of what nutrients you use, they will be mixed with water. The water you use should ideally be reverse osmosis treated or if tap water is a must then make sure to let it sit out overnight to let any chlorine contained in it evaporate. This is a deceptive thing in that chlorinated tap water will work fine but will prevent your plant from ever reaching its full potential. This is a great place to squash the rain water myth. Rain water is full of minerals, dirt, and living organisms it is neither the best nor the worst choice for growing plants. In particular if you are using an indoor grow or hydroponic rig you will not desire to use rainwater since it will contain heavy amounts of minerals that you did not intend to add to your carefully controlled growth system.</p>
+            <div class="section" id="dry-vs-liquid">
+            <h4><a class="toc-backref" href="#dry-vs-liquid">Dry vs Liquid</a></h4>
+            <p>Liquid nutrients are very trendy and hip in the hydroponic world. There is nothing wrong with a Liquid nutrient, you know it will mix well but they are generally more expensive because the bottle contains more water and less nutrient. This also makes them more expensive to ship and transport. When it comes time to mix them and feed your plant either dry or Liquid works equally well.</p>
+            <p>In both cases you should add to the water after filling the container rather than adding nutrients and then filling. Adding before filling can lead to nutrient imbalances.</p>
+            </div>
+            <div class="section" id="flushing-soil">
+            <h4><a class="toc-backref" href="#flushing-soil">Flushing Soil</a></h4>
+            <p>Nutrient salts will build up in soil it is highly recommended that you flush your soil plants with clean water from time to time. If in a pot flush with 3 times the volume of the pot with water and for plants in the ground flush until the ground is fully saturated and possibly repeat the following day. This is also recommended if the plants show signs of nutrient or ph imbalance.</p>
+            </div>
+            <div class="section" id="maintaining-a-reservoir">
+            <h4><a class="toc-backref" href="#maintaining-a-reservoir">Maintaining a Reservoir</a></h4>
+            <p>Proper maintenance of your reservoir is essential to growing healthy marijuana to its full potential if you grow using a hydroponic method that requires you to keep a res. The critical factors here are nutrient levels and PH. Unfortunately, there is no simple way to track the level of individual nutrients in your reservoir but there are ways to keep a healthy reservoir system going just the same.</p>
+            <p>To begin, you will want to mix your nutrients at full strength according to the manufacturers recommendations. You should use either reverse osmosis treated water or if you must use tap water draw it from the cold water tap and let your water sit overnight to evaporate chlorine. Hot water will contain more dissolved impurities than cold water. After adding your nutrients and micro-nutrients you should adjust your PH to 5.8 which is ideal for hydroponic nutrient solution. Measure the TDS, or total dissolved solids with a TDS meter. With full strength nutrient solution this number will probably be around 1100-1300 TDS. This will be where you want to keep your nutrient (if using lower strength nutrient for earlier stages then mix and measure TDS accordingly).</p>
+            <p>Now all you need to do is top off your nutrient solution with clean water daily. If your TDS is low then add nutrients. If your PH is off then adjust it.</p>
+            <p>Since the plant will not absorb nutrients in the same proportions you are adding them imbalances will result over time. To correct this you will periodically need to drain and fill your reservoir with fresh nutrient solution. To begin with do this at least once a month and just before you start flowering. During flowering change the reservoir every two weeks. How often you actually need to do this depends on the plants, the nutrients, the size of the reservoir, etc. Luckily the plants will let you know how often you need to do this. They will start exhibiting signs of nutrient deficiency when there is an imbalance and you will know that you can't go longer than that before changing the reservoir. Especially with clones you will be able to get res changes down to a system of clockwork since the clones will generally all have the same nutrient preferences.</p>
+            </div>
+            <div class="section" id="ph-ideals-and-adjustment">
+            <h4><a class="toc-backref" href="#ph-ideals-and-adjustment">PH Ideals and Adjustment</a></h4>
+            <p>The ideal PH for your garden is based on nutrient uptake. A PH that is too low will be too acidic and burn the roots of your plant. A PH that is too high will be too alkaline and cause your plants roots to be unable to uptake nutrients. Many supposed nutrient deficiency problems are really caused by improper PH levels. PH can be tested with a digital meter (ideal), or with chemical drop tests or test strips. Because PH optimally should be adjusted to a tenth of a point accuracy a digital meter is highly recommended.</p>
+            <p>Depending on your method of grow and whether you are using soil or hydroponic different nutrients will be absorbed at different PH levels. For a hydroponic garden the only PH level that all nutrients will be absorbed at is 5.8. For soil gardens the ideal PH is 6.5.</p>
+            <div class="section" id="adjusting-ph">
+            <h5><a class="toc-backref" href="#adjusting-ph">Adjusting PH</a></h5>
+            <p>Leaving tap water to sit out overnight will evaporate chlorine and raise PH. Adding nutrients will lower PH. But once you have done those things how do you move the PH to where it needs to be?</p>
+            <p>There are a couple simple ways to do this. There are commonly sold chemicals known as PH up and PH down sold at hydroponic gardening stores that will adjust PH for you. Similar chemicals are also sold for pools but these are not recommended for plants. But the easiest method can be found in your kitchen. Simple baking soda and distilled white vinegar will adjust PH up and down respectively. These should be used in very small amounts. You might need to play with them to find what is needed for your water source and nutrients (it should remain consistent once you've found what you need to add). I find that in a 4 gallon flowering nutrient mix 1/2 tsp is enough to raise the PH from 5.0 to 5.8.</p>
+            <p>PH adjustment chemicals should be added after all nutrients. After adding PH adjustment chemicals mix well and then give your water a couple hours for everything to stabilize. If you are using baking soda and vinegar then try to avoid using them in combination. Use either one or the other if possible. They will react with one another to form CO2. CO2 is great for plants leaves and flowers but is bad for plant roots.</p>
+            </div>
+            </div>
+            </div>
+            <div class="section" id="lighting">
+            <h3><a class="toc-backref" href="#lighting">Lighting</a></h3>
+            <p>Lighting is probably the most crucial element in a grow. If you don't have proper lights then you won't get good results. Unfortunately, this remains true on a low budget and in order to grow indoors you will need to invest in a good light. A general rule of thumb for lighting is 2000 lumens per square foot.</p>
+            <div class="section" id="fluorescent">
+            <h4><a class="toc-backref" href="#fluorescent">Fluorescent</a></h4>
+            <p>Fluorescent and Compact Fluorescent lighting (CFL) is effective for growing marijuana but the spectrum is not ideal. When evaluating these lights you should always look at actual watts and not equivalent watts. These lights come in multiple spectrums but generally they are divided into warm, cool, and daylight spectrums. The daylight spectrum bulbs are ideal but you can use a combination of warm and cool bulbs in equal number as well.</p>
+            <p>Fluorescents lack penetrating power and you will need to keep them within 6 inches of the plant tips except for rooting clones. For rooting clones you will want the lights about 18 inches above the plant tips. Fluorescents work well for clones and seedlings that can't take bright or hot lights and also perform well for vegetative growth. Unfortunately these lights simply do not have the punch to perform well for flowering. They can be used in a pinch if you use lots of watts and a shallow grow area by training plants. Many cabinet growers do this with 150w CFL's.</p>
+            <p>These bulbs require a ballast in addition to a fixture, in CFL bulbs the ballast is built into the bulb.</p>
+            </div>
+            <div class="section" id="mercury-vapor">
+            <h4><a class="toc-backref" href="#mercury-vapor">Mercury Vapor</a></h4>
+            <p>Mercury Vapor bulbs are cheap and readily available. But their spectrum makes them a poor choice for growing marijuana.</p>
+            </div>
+            <div class="section" id="incandescent">
+            <h4><a class="toc-backref" href="#incandescent">Incandescent</a></h4>
+            <p>These bulbs are everywhere but they are extremely inefficient. You will pay a fortune lighting up these bulbs and reap little reward. These include so called 'grow bulbs' sold in stores.</p>
+            </div>
+            <div class="section" id="led-lighting">
+            <h4><a class="toc-backref" href="#led-lighting">LED Lighting</a></h4>
+            <p>LED lighting has a number of advantages. The lamps have a fixed angle so no reflector is needed, all the light output is directed at the plants. LED lighting runs cool and the plants can grow right up to the lights. These lights produce light in a fairly tight spectrum and lamps are available that can be combined to stimulate all the photo sensitive hormones in the plant.</p>
+            <p>The downside is that the light spectrums of commonly available LED's aren't perfect for growing marijuana. The number of lumens output by LED's is actually fairly low and LED's are extremely expensive. This technology simply isn't there yet for growers but it will come in time.</p>
+            </div>
+            <div class="section" id="metal-hallide">
+            <h4><a class="toc-backref" href="#metal-hallide">Metal Hallide</a></h4>
+            <p>Metal Hallide is a high intensity discharge lighting that produces a bluish light. This light spectrum works very well for the vegetative stage of growing but does not work especially well for the flowering cycle which requires more red spectrum for optimal growth. This type of lighting is very popular among growers who often purchase digital ballasts that can switch between these and HPS type bulbs.</p>
+            </div>
+            <div class="section" id="high-pressure-sodium">
+            <h4><a class="toc-backref" href="#high-pressure-sodium">High Pressure Sodium</a></h4>
+            <p>High Pressure Sodium or HPS is the most popular type of bulb among knowledgeable growers today. Most street lamps are HPS lighting. HPS lamps provide an excellent spectrum for flowering and although their spectrum is not quite right for vegetation there are spectrum corrected bulbs with more blue light that work well through the complete grow cycle. There are metal hallide conversion bulbs that work in HPS ballasts, and there are digital ballasts that can switch between the two types of bulb. A 400w HPS light puts out 55,000 lumens and the bulbs become more efficient up until the 600w bulb which puts out 95,000 lumens. The next largest commonly available size of HPS bulb is 1000w but these are less efficient and give fewer lumens per watt than the 600w lamps.</p>
+            </div>
+            <div class="section" id="special-bulbs">
+            <h4><a class="toc-backref" href="#special-bulbs">Special Bulbs</a></h4>
+            <p>There are a number of special bulbs which you might encounter. You might encounter conversion bulbs, these bulbs allow you to run a lamp in a ballast intended for a different type of lamp. For instance, MH conversion for HPS ballasts and HPS conversion to MH ballasts. Additionally there are spectrum corrected HPS and MH bulbs that add blue and red spectrum respectively to make the lighting work better for growth. Yet other lamps have a reflector built into the bulb.</p>
+            </div>
+            <div class="section" id="reflectors">
+            <h4><a class="toc-backref" href="#reflectors">Reflectors</a></h4>
+            <p>There are two reflectors you will certainly want to have. The first is on your lamp, these reflectors vary widely in price but generally you want a polished aluminum reflector that spreads the light well over your grow area. Some reflectors have hoods with an opening to attach ducting in order to keep the light cooler. There are also glass tube fixtures that ducting can connect to 'cool tubes' are the common term used for these.</p>
+            <p>The other reflector is that around your grow area. The best solution for this is some sort of reflective film such as reflective mylar. Mylar reflects 95% of light back at the plants. In a large space you might want to put the film on cardboard that can be position to enclose the grow to bring the walls in.</p>
+            <p>If you don't have access to mylar than flat white paint is recommended. Do not use a mirror, mirrors actually absorb light and do not use aluminum foil, it creates hot spots.</p>
+            </div>
+            </div>
+            <div class="section" id="ventilation-and-odor-control">
+            <h3><a class="toc-backref" href="#ventilation-and-odor-control">Ventilation and Odor Control</a></h3>
+            <p>Ventilation is absolutely essential to plant health. Plants absorb CO2 and release oxygen. The roots in turn require oxygen so both must be present in your grow environment. Additionally odor control will be very important. Marijuana has a pungent odor and some strains can be smelled for miles without some form of odor control.</p>
+            <div class="section" id="negative-ion-generation">
+            <h4><a class="toc-backref" href="#negative-ion-generation">Negative Ion Generation</a></h4>
+            <p>Negative ion generators can help with odor control problems. These machines will use a negative charge to attract positively charged particles in the air. These are best purchased off the shelf but you do need to know that you shouldn't actually put the generator in the room with the Plants. They are said to interfere with the taste, odor, and even potency of the end product.</p>
+            </div>
+            <div class="section" id="ozone-generators">
+            <h4><a class="toc-backref" href="#ozone-generators">Ozone Generators</a></h4>
+            <p>Ozone (o3) is what gives the air a fresh smell after a thunderstorm. Ozone oxidizes organic particles in the air but in high concentrations can irritate your lungs. For this reason ozone generators are typically put on the timer with on and off cycles to allow the system to output just enough ozone to control the odor.</p>
+            <p>These generators come in two basic varieties, corona discharge and uv generation. Since uv generators require longer exposure to the air the corona discharge systems are probably more sensible for most gardeners. There are plans online to make corona discharge units with neon sign transformers. This is definitely NOT recommended, these devices are a severe fire and electrocution hazard that will not be properly isolated and housed and will be placed in a wet environment. It is probably a safer and more effective idea to simply purchase a small used unit.</p>
+            </div>
+            <div class="section" id="odor-neutralizers-and-masking-agents">
+            <h4><a class="toc-backref" href="#odor-neutralizers-and-masking-agents">Odor Neutralizers and Masking Agents</a></h4>
+            <p>One common technique for a small scale closet grow operation to build an odor remover bucket. Simply drill 1/2 inch holes around the top of a 5 gallon bucket. Fill the bucket with perlite or absorbent crystals and then add an odor neutralizer or masking agent chemical.</p>
+            <p>Odor neutralizing agents such as ONA are definitely more effective than those that merely mask odors.</p>
+            </div>
+            <div class="section" id="active-carbon-filtration">
+            <h4><a class="toc-backref" href="#active-carbon-filtration">Active Carbon Filtration</a></h4>
+            <p>This technique involves forcing exhaust air through active carbon in order to filter out odors. This method is highly effective and very popular and can also be used in combination with the other methods. These filters can be purchased or you can find plans to construct them online.</p>
+            <p>Ideally, you would use your exhaust fan to pull the air through the filter rather than push air through it.</p>
+            </div>
+            <div class="section" id="intake-and-exhaust">
+            <h4><a class="toc-backref" href="#intake-and-exhaust">Intake and Exhaust</a></h4>
+            <p>Unless you are adding CO2 you should make sure that you have a highly effective exhaust system. You will want to make sure your exhaust fan is rated for high CFM under pressure. All fans will have a CFM rating, this rating is how many cubic feet of atmosphere the fan moves per minute. Your exhaust fan should be capable of evacuating your grow room at least once every five minutes. Multiply the width, height, and depth of your room to determine the total cubic feet, divide this number by five and you will have the minimum CFM fan rating needed. Of course this assumes the fan maintains its CFM under pressure and actually performs to specifications. In practice this doesn't happen. It is best to overshoot this rating as much as your budget will allow. Even if your fan does perform to specifications pulling more air through will help keep the temperature of the room down and exhaust the heat from powerful fans.</p>
+            <p>Generally squirrel cage and duct fans are used for exhaust systems. These fans can be connected to 4 inch and 6 inch flexible ducting that can be used to route the air where you want it and to pull air through a carbon filter.</p>
+            <p>In addition to your exhaust system you will need an air intake. For many systems a passive intake is used, simply providing a channel for fresh air to enter the grow room to replace the air being exhausted. For a larger area or longer intake line you may need an active intake. Providing an active intake relieves pressure to allow the exhaust and intake to share the workload of air exchange. Otherwise the exhaust fan must provide the force required to pull air into the room as well as the force required to exhaust.</p>
+            </div>
+            <div class="section" id="co2-supplementation">
+            <h4><a class="toc-backref" href="#co2-supplementation">CO2 Supplementation</a></h4>
+            <p>CO2 Supplementation yields dramatically larger flowers than growing without adding CO2. The idea is to replicate earlier geological conditions when atmospheric carbon dioxide levels were higher and plants grew far larger than they do today. The ideal level of CO2 is between 1500-2000 ppm. There are many ways to add this CO2. CO2 moves very easily and weighs more than oxygen. Because of this you will want fans to be off during the period in which you are supplementing CO2. Because plants only utilize CO2 for photosynthesis you will only need to supplement during the lights on period.</p>
+            <div class="section" id="fermentation">
+            <h5><a class="toc-backref" href="#fermentation">Fermentation</a></h5>
+            <p>This is done by fermenting sugars with yeast. Sometimes even basic sugar and water is used for this purpose. Others use a more sophisticated blend with nutrients for the yeast. You will need to use an airlock (tubing coming out of a sealed fermentation vessel or jug and placed in a cup of water so the CO2 has to bubble out through the water will work). This method is very cheap and easy to setup but while every bit helps this will not raise your CO2 levels to the ideal 1500-2000ppm.</p>
+            </div>
+            <div class="section" id="dry-ice">
+            <h5><a class="toc-backref" href="#dry-ice">Dry Ice</a></h5>
+            <p>You can generate CO2 by simply melting dry ice (which is frozen CO2) but it is difficult to control the speed of release to precisely control the CO2 levels. Additionally you will need to add ice each day and the ice can not be kept in your freezer.</p>
+            </div>
+            <div class="section" id="vinegar-and-baking-soda">
+            <h5><a class="toc-backref" href="#vinegar-and-baking-soda">Vinegar and Baking Soda</a></h5>
+            <p>When vinegar and baking soda react they release CO2. You can produce CO2 at a controlled rate by utilizing a drip system.</p>
+            </div>
+            <div class="section" id="propane-burners">
+            <h5><a class="toc-backref" href="#propane-burners">Propane Burners</a></h5>
+            <p>Propane burners generate lots of CO2 and can be controlled but they also generate lots of heat that must be exhausted.</p>
+            </div>
+            <div class="section" id="stored-co2-cannisters">
+            <h5><a class="toc-backref" href="#stored-co2-cannisters">Stored CO2 Cannisters</a></h5>
+            <p>These can be purchased with cash at any gas supply shop. This is the least expensive and most controlled way to supply CO2. The downside is that there is a high up front cost and a few calculations are required to determine how to setup the system and output CO2 at the proper rate.</p>
+            <p>The details of the setup will vary based on your equipment but there are a few basic components you will need to use this method. The first is a tank. Tanks must be refitted with new seals periodically. Generally a gas supply will exchange your cannister with another that has a similar amount of time left on it rather than fill the cannister on the spot. In addition to the cannister itself you will need a solenoid switch to allow you to use a timer to control when the tank releases gas and when it does not. A regulator is needed to regulate the pressure to a lower and fixed pressure that won't damage your other equipment. To the output of the regulator you will need a flow meter with needle valve. Usually this will consist of a tube with increment markings and a little ball that raises to show you how much CO2 is flowing through the flowmeter. This allows you to fine tune the output of your CO2 system. Finally you will need plastic tubing with holes in it in order to actually distribute the CO2 around the grow area. Remember CO2 is heavier than air and will fall downward when released out of the tube. This means you should position the tubing above your plants.</p>
+            <p>You can purchase all of these components aside from the cannister as kits sold for hydroponics. Follow the directions that come with the kit to set your timer, flowmeter, and regulator.</p>
+            </div>
+            </div>
+            </div>
+            <div class="section" id="temperature-control">
+            <h3><a class="toc-backref" href="#temperature-control">Temperature Control</a></h3>
+            <p>Marijuana can survive between the temperatures of 60°F (16°C) and 92°F (33°C) but those are not ideal temperatures, those are the extremes that the plant can generally survive without dying. Ideal temperature control allows you to grow larger and higher quality marijuana with denser buds. In fact, once the basic nutrient and light needs of the plant are met, temperature control has the greatest impact on flower density of any other element.</p>
+            <p>The ideal range for marijuana is 75–83°F (24–29°C). Flower density will be determined not so much by the temperature you grow at but by the range of temperature. It is better to have plants that sit at 85°F (29°C) during the day and 83°F (28°C) at night, than 83°F (28°C) during the day and then 75°F (24°C) at night.</p>
+            <p>Getting those temperatures and temperature ranges can be quite a challenge but there are tricks to help. One simple trick is to have the hot lights run at night and have the dark period occur during the daytime hours. A small space heater or heating pad can be used to raise temperatures if needed. And of course airflow and air conditioning are a great way to remove heat and hot air from your grow environment. If your grow is closed for CO2 exchange then a dehumidifier is a great way to reduce temperatures.</p>
+            </div>
+            <div class="section" id="grow-mediums">
+            <h3><a class="toc-backref" href="#grow-mediums">Grow Mediums</a></h3>
+            <p>Grow mediums exist to provide a stable base for your plant to grow its roots through and to hold up the weight of the plant. Over the years many substances have been found to fill this role and they have different properties. Often a grower will use one or more of these mediums depending on the methods he has chosen for growing and the desired properties of the medium in the container being used.</p>
+            <div class="section" id="soil">
+            <h4><a class="toc-backref" href="#soil">Soil</a></h4>
+            <p>Good old earth. Soil is actually a composite of a number of substances and varies from one location to another. Soil is typically composed of rock, sand, clay, and organics. Organics are decomposed plant and animal matter and provide the nutrient content that is contained in soil, clay binds soil together and retains moisture, rocks and sand provide drainage to allow for root oxygenation. Additionally soil is usually teaming with microorganisms that are feeding on and breaking down the organics contained within it.</p>
+            <p>If growing a potted plant indoors you will probably want to mix at least perlite with your soil to enhance moisture retention. It is also highly recommended that potting soil be used in a pot rather than soil that you have dug from the ground. A potting mix can be more carefully designed for optimal plant health and the soil outside will contain many unwanted forms of insect life that can and will infect and kill your plants.</p>
+            <p>Another common concern with soil is that potting soils often already have fertilizers in them (in addition to the nutrients contained in the organics). In general, try to avoid potting soils with time release nutrients but if you do purchase a bag, be aware that the plant will not need any nutrients for a period of time and just water with clean water to avoid burning the roots.</p>
+            </div>
+            <div class="section" id="perlite">
+            <h4><a class="toc-backref" href="#perlite">Perlite</a></h4>
+            <p>Perlite is a porous white substance that is very absorbant and excellent at retaining and wicking moisture. Perlite is often used for cloning and mixing with other grow mediums but can also be used on its own. Growers who use perlite as a sole grow medium will often purchase large coarse chunks rather than the smaller porous perlite that is more readily available in most areas. It is not recommended to use perlite in a circulating system because the fine dust that comes off the perlite will clog pumps over time. The same fine dust brings a recommendation that when handling perlite you utilize a respirator device so that the dust does not harm your lungs.</p>
+            <p>Perlite is completely inert substance so will not interfer with your feeding schedules. That said, there are manufacturers such as Miracle Grow that put nutrients in their brand of perlite even though it is not indicated on the label. This material can be used but should be flushed thoroughly with water to wash out the nutrients. Perlite should be washed anyway to remove the fine dust that builds up in it.</p>
+            </div>
+            <div class="section" id="vermiculite">
+            <h4><a class="toc-backref" href="#vermiculite">Vermiculite</a></h4>
+            <p>Vermiculite is a crushed volcanic rock medium that provides excellent drainage when mixed with other grow mediums. Vermiculite is inert but is not particularly suitable for use as a grow medium by itself.</p>
+            </div>
+            <div class="section" id="rockwool">
+            <h4><a class="toc-backref" href="#rockwool">Rockwool</a></h4>
+            <p>Rockwool is literally spun rock. Much the way sugar is spun into cotton candy the rock is spun into a material that looks similar to the spun glass used for insulation (but not so itchy). Rockwool is completely inert and most growers are using rockwool in some form. If allowed free drainage rockwool will retain just the right amount of moisture and drain the rest off.</p>
+            <p>Rockwool comes in multiple sizes of cube. There are smaller cubes or plugs that are typically used for seedlings or clones and larger blocks that are used in hydroponic systems such as ebb and flow trays. Some of the large blocks have holes in them to make it easy to insert the small plugs or cubes you used to clone the plant directly into the larger block</p>
+            <p>The only concern with rockwool is that it should be completely submerged in water for 8hrs prior to use in order to remove any air bubbles in the medium.</p>
+            </div>
+            <div class="section" id="hydroton">
+            <h4><a class="toc-backref" href="#hydroton">Hydroton</a></h4>
+            <p>Hydroton is one name for a medium that consists of lava rock or clay pellets that are available in different sizes and usually have a red coating on the outside. This inert medium is effective in continuous drip and ebb and flow systems. It is also an excellent choice anywhere you need drainage and some have used it for the bottom couple of inches of a hempy bucket to facilitate free drainage.</p>
+            </div>
+            <div class="section" id="coconut-fiber">
+            <h4><a class="toc-backref" href="#coconut-fiber">Coconut Fiber</a></h4>
+            <p>This is a fairly new medium that many are beginning to use. Coconut fiber offers some of the buffering capacity of soil, drains well, retains enough moisture to be useful, and has little nutrient content.</p>
+            </div>
+            </div>
+            </div>
+            <div class="section" id="seedlings">
+            <h2><a class="toc-backref" href="#seedlings">Seedlings</a></h2>
+            <div class="section" id="selecting-seeds">
+            <h3><a class="toc-backref" href="#selecting-seeds">Selecting Seeds</a></h3>
+            <p>Good marijuana simply can not be harvested from poor seed. There are thousands of strains of marijuana and established seed lines and breeders. All of these have different characteristics for you to select from. Among the traits to consider are size, duration of flowering period, yield, type of psychoactive effect, strength of psychoactive effect, THC content (this is NOT synonymous with psychoactive potency), odor, taste, and visual effect.</p>
+            <div class="section" id="quality-of-source">
+            <h4><a class="toc-backref" href="#quality-of-source">Quality of Source</a></h4>
+            <p>The quality of source seeds is something you need to consider. Your sources can range from bag seed from dirt weed to clones from a plant with known premium pedigree properties.</p>
+            <p>Any grower will tell you that smokers don't know what is good and what is not. There are no shortage of smokers who have only experienced good marijuana in the form of a midgrade. These individuals tend to refer to any decent mid as skunk or chronic. There is nothing wrong with that but if you are one of those individuals you are about to attain a new level of awareness.</p>
+            <p>One thing you should note is that the quality of the buzz is actually more important than the potency. It really doesn't matter how potent the marijuana is or how high the THC content. A plant with a strong couchlock or cerebral high will have a peak effect and the potency of the plant only changes how much material must be used to achieve that effect. The end result of smoking lots of low potency marijuana is the same as smoking a smaller amount of the most potent and highest thc content marijuana with the same kind of buzz. This can be observed by smoking a sinsemillia bud and a pollinated bud from the same mother. Both will have the same effect, you just have to smoke more of the lower potency seedy material.</p>
+            <div class="section" id="bag-weed">
+            <h5><a class="toc-backref" href="#bag-weed">Bag Weed</a></h5>
+            <p>Bag weed is a mystery. The genetics hiding in those seeds could hold many surprises and could hold the next great pedigree plant or they could hold nothing more than dirt weed. When evaluating bag weed there are a number of indicators to look for. The first is packaging. If the marijuana is packed in a brick or pressed into tight chunks that is has to be broken off of then this indicates that it is a heavily commercialized strain. This is fairly consistently low quality material. The next indicator is seediness. It is perfectly possible to lower the quality of premium marijuana by pollinating it but this sort of carelessness indicates that the grower either didn't care about what he was doing or didn't know. It is a fair bet that said grower didn't care or know about the strain either. Another important indicator is color of the plant material. A very dark brown, almost black indicates a highly competent curing method, next up is a nice green plant material that doesn't smell grassy and reveals the color of the hairs, purple plant material will tend to have less potency potential among pedigrees but has excellent bag appeal and generally will be of a pedigree strain, the absolute worst things to see are a light green plant material with a grassy smell and light brown material.</p>
+            <p>Now having considered those qualities you will of course want to consider the buzz delivered by the material, side effects like paranoia, dry mouth, and appetite stimulation. Also important is odor and appearance. Not all pedigree marijuana has a strong odor but a strong odor is usually a good sign. And of course taste is important. Some marijuana strains even have a nice fruity taste.</p>
+            </div>
+            <div class="section" id="purchased-seeds">
+            <h5><a class="toc-backref" href="#purchased-seeds">Purchased Seeds</a></h5>
+            <p>One easy way to acquire excellent genetics is to simply purchase from a known and reputable breeder. There are many online seed companies that are reliable and will ship anywhere in the world. You do need to be cautious because the companies do not verify that seeds are legal in your location and leave that burden upon you. If you try to import seeds where they are not allowed by law you risk losing the money you invested in the seeds.</p>
+            <p>Things to look for in seeds are feminization (if done by a competent breeder these seeds do NOT carry an increased probability of hermaphroditism). Feminized seeds produce all female plants. This is desirable since in regular seed only about half are females. You will want an all female crop in order to prevent pollination and grow sinsemillia weed that is much more potent. Since only the female plants are desired half of the seeds you purchase will be wasted with regular seeds. It will also leave empty space in your grow area.</p>
+            <p>Another important trait to look for are seeds which are F1 Hybrids. F1 Hybrids are genetically more desirable. These seeds are from the strains original parent plants. Seeds from two F1 plants of the same strain would be F2. With each successive generation of inbreeding the genetic stock becomes weaker. F1 plants will also be more likely to enjoy what is called 'hybrid vigor'. Hybrid vigor is a phenomenon that sometimes occurs in hybrid crosses causing a incredible vigor and growth in the offspring produced by the cross.</p>
+            </div>
+            <div class="section" id="clones">
+            <h5><a class="toc-backref" href="#clones">Clones</a></h5>
+            <p>Clones obviously aren't seeds, but they are cuttings from a mother plant and used to propagate genetics and start gardens. When grown out the cutting will have the same genetics as the mother plant and therefore all the same characteristics. There are locations where you can sample marijuana and then purchase cuttings from the same mother as the plant that produced it. Obtaining a cutting of known quality genetics is the best way to obtain genetics. If this option is available to you then you should go with it. Cuttings can be taken from any marijuana plant so if you have a friend that grows you might be able to acquire excellent genetics. As an added bonus, since cuttings are clones they also share the gender of the parent plant. This means cuttings from a female plant will always be female.</p>
+            </div>
+            </div>
+            <div class="section" id="basic-types-of-plant">
+            <h4><a class="toc-backref" href="#basic-types-of-plant">Basic Types of Plant</a></h4>
+            <p>It is worth having some understanding of what strains of plant are out there. This lets you describe what you are growing and understand what others are growing.</p>
+            <div class="section" id="cannabis-indica">
+            <h5><a class="toc-backref" href="#cannabis-indica">Cannabis Indica</a></h5>
+            <p>Indica plants are short, bushy, mature early, have more chlorophyll and less accessory pigments (accessory pigments protect the plant from excessive sunlight). Indicas are very resinous plants that provide a body buzz couch lock effect.</p>
+            </div>
+            <div class="section" id="cannabis-sativa">
+            <h5><a class="toc-backref" href="#cannabis-sativa">Cannabis Sativa</a></h5>
+            <p>Sativa plants are taller, take longer to mature, have less chlorophyll and more accessory pigments. Traditional botonists tend to mislabel all cannabis as cannabis sativa. Sativa plants have much higher yields than indicas and have a very cerebral buzz. They are typically very consistent maintaining the same results from one generation to the next.</p>
+            </div>
+            <div class="section" id="cannabis-ruderalis">
+            <h5><a class="toc-backref" href="#cannabis-ruderalis">Cannabis Ruderalis</a></h5>
+            <ol class="upperalpha simple" start="3">
+            <li>ruderalis plants are typically very short and extremely low potency. Ruderalis strains do have one interesting trait: other strains of marijuana flower when the light output is reduced to twelve hours a day or less, allowing a build up of a light sensitive hormone in the plant that tells it winter has arrived. C. ruderalis plants automatically flower after a certain time period independent from light output and are, therefore, referred to as autoflowering. For this reason there are crosses between potent indicas and sativas with ruderalis to attempt to create a plant with higher yield and greater potency that flowers automatically. This offers the benefit of having the plant enjoy as much photosynthesis during its life cycle as possible.</li>
+            </ol>
+            </div>
+            <div class="section" id="hybrid">
+            <h5><a class="toc-backref" href="#hybrid">Hybrid</a></h5>
+            <p>A hybrid is a cross between two or more of the other strains of plant. Most commercially available strains are hybrids with varied amounts of indica and sativa. There are a few ruderalis hybrids as well.Few hybrids occur in plants.</p>
+            </div>
+            </div>
+            </div>
+            <div class="section" id="germinating-seeds">
+            <h3><a class="toc-backref" href="#germinating-seeds">Germinating Seeds</a></h3>
+            <p>A great deal is made of germinating seeds. In truth the process is simple and if done correctly will give excellent results, generally 90+% germination rates.</p>
+            <p>In order to germinate seeds you should take a paper towel and fold it in half and half again. Wet the paper towel thoroughly with reverse osmosis filtered water and place the seeds in the crevice made by the last fold. Close the paper towel and place it on a plate. Then place the plate in a dark place and check it 24hrs later. Continue to check every 8hrs keeping the paper towel moist until the shell of the seed opens and a white shoot comes out. This will typically occur within 72hrs. Now that the seed has sprouted you can push it into your desired grow medium. It is best to sprout your seeds in either a small rockwool cube or directly into the same grow medium you plan to use in your final grow. This will reduce stress on the plant when you transplant it.</p>
+            </div>
+            <div class="section" id="from-sprout-to-seedling">
+            <h3><a class="toc-backref" href="#from-sprout-to-seedling">From Sprout to Seedling</a></h3>
+            <p>Once the germinated seed is placed in grow medium it should be watered with plain water until it sprouts. When it sprouts it will have two small round petals. This is considered a sprout. You should continue to water with clean water at least until the first set of true serrated edged leaves form and the two small round leave brown and die. This is normal, the plant uses those leaves as a sort of parachute to allow it to utilize the nutrients stored in the seed itself. During this stage of growth the plant is very delicate and should only be placed under fluorescent lights.</p>
+            <p>At this point your sprout is now called a seedling. If you sprouted in a rockwool cube you should either place it into your desired grow medium and begin feeding with a weak 1/4 strength nutrient solution or if you have it in soil you can just continue to water it since there should be nutrients in the soil.</p>
+            </div>
+            </div>
+            <div class="section" id="vegetative-growth">
+            <h2><a class="toc-backref" href="#vegetative-growth">Vegetative Growth</a></h2>
+            <p>The vegetative growth cycle is about growing the plant mass in preparation for flowering. Outdoor you will have several months of vegetative growth. Indoors you can have as little as a week (if using clones), 4-6wks (typical), or as much as you want.</p>
+            <div class="section" id="id1">
+            <h3><a class="toc-backref" href="#id1">Lighting</a></h3>
+            <p>The adult life cycle of the marijuana plant consists of two stages of growth. Vegetative and Flowering. The plant determines which of these stages of growth it should be in through the presence of a flowering hormone (phytochrome) which is sensitive to light. As long as light levels above 12-14 hours are maintained the flowering hormone will never be present in high enough levels to induce flowering in the plant. At any point during the plants life if the light is on for more than 12 hours a day it will cause the levels of flowering hormone to be reduced and the plant to revert to the vegetative growth stage. If a plant is reverted during flowering by irregular light patterns it can cause stress in the plant and stress can cause hermaphroditism. A plant can be maintained in vegetative growth without being allowed to flower indefinitely with no adverse effects.</p>
+            <p>Typically indoor growers who can control their light cycles will use either 18 hours of light per day or 24 hours of light per day. There are mythical claims that a darkness period is needed but there is no evidence to support. What is in dispute is whether the extra light hours bring a great deal of benefit compared with 18-hour light.</p>
+            </div>
+            <div class="section" id="feeding">
+            <h3><a class="toc-backref" href="#feeding">Feeding</a></h3>
+            <p>During vegetative growth you will want to use a fertilizer that is high in nitrogen at full strength. Nitrogen is used by the plant to grow stems, leaves, and other green parts and so is absolutely essential to the vegetative phase of growth. As always you should begin with the manufacturers suggestions for the period of growth you are in when adding fertilizer and then adjust up or down based on how your plants respond.</p>
+            <p>There is another section on plant problems but a good hint to know at this stage is that it is common to mistake too many nutrients or PH misadjustment for nutrient deficiency. Always carefully check PH before adjusting nutrients to fix a problem and if adding nutrients doesn't seem to be fixing your 'deficiency' try flushing the system instead. Unlike the drooping leaves that result from under or over watering yellowing and necrosis from nutrient problems generally don't recover but they stop getting worse and new growth will be green and healthy.</p>
+            </div>
+            <div class="section" id="training-and-trimming">
+            <h3><a class="toc-backref" href="#training-and-trimming">Training and Trimming</a></h3>
+            <p>Different techniques have developed for training plants. The goal of training a marijuana plant is to optimize yield with the available light and space. Outside a plant in the middle of a clearing with a full year of vegetation can probably be left to do what it wants and give great yields. Indoors the light is more precious and many growers are using small cabinets. They just train their plants to utilize the space they have.</p>
+            <p>A couple things that any grower should be aware of are that leaves are solar panels. You might be twisting and directing the branches but the plant knows better than you when and where it needs leaves, leave them alone. If a gentle pull on the leaf doesn't cause it to give way immediately then it is healthy tissue. Usually you will only want to remove browned leaves. With a thick canopy under indoor light the lower growth will yellow and die, this is because the plant isn't getting much light there and steals the nutrients from these now unneeded leaves. This is nature at work and not always a sign of too much or few nutrients.</p>
+            <p>Another thing that is important to know is that the tops of the plant produce the most potent and largest flowers. Most training techniques focus on maximizing the number of those top flowers and on removing smaller lower flowers the plant will direct all its energy to the larger tops. How much difference different training techniques make is debated but trimming lower growth that is far from the light is universally agreed to improve yield. Any time you bend a branch horizontally it will cause the plant to produce a hormone that encourages lateral growth.</p>
+            <p>When training plants you will occasionally snap a stem. It happens. Plants can usually recover from this. Just position the stem back together and tape it in place. Give the stem time to recover before applying more pressure to that spot. A small knot will develop at the break and in the end the plant stem will grow back healthier and stronger than before.</p>
+            </div>
+            <div class="section" id="jogging">
+            <h3><a class="toc-backref" href="#jogging">Jogging</a></h3>
+            <p>Jogging also known as the jungle of green or JOG technique is a useful way to maximize the yield from your crop. It is very effective in a low grow space as well.</p>
+            <p>With the jog technique you will use wires shaped into &quot;U&quot;'s to hold down the stem into the desired positions as you gradually shape it around the perimeter of the pot. The goal is to make the plant entirely fill the pots space with top buds. No matter how much training you do a plant will have a genetic maximum bud capacity that can not be exceeded. Training will help you reach that potential but nothing can allow you to exceed it.</p>
+            </div>
+            <div class="section" id="sea-of-green">
+            <h3><a class="toc-backref" href="#sea-of-green">Sea of Green</a></h3>
+            <p>Sea of a green is a technique whereby you grow a far greater number of smaller plants rather than a small number of large plants. Usually clones are used for uniform growth characteristics and each plant is trimmed so that only the main stalk grows.</p>
+            </div>
+            <div class="section" id="screen-of-green">
+            <h3><a class="toc-backref" href="#screen-of-green">Screen of Green</a></h3>
+            <p>With the screen of green, or SCROG technique, a screen of wire such as chicken wire is held up as a horizontal plane above the plants. The plants are nudged through the screen to create a uniform canopy so that all light is utilized by growth. Generally anything below the canopy is trimmed off.</p>
+            </div>
+            <div class="section" id="lst">
+            <h3><a class="toc-backref" href="#lst">LST</a></h3>
+            <p>LST is a technique where a plant is trained through the use of ties or ropes. The idea is that you use a support rope at the base of the plant pulled one direction and another tied to the top pulling it down in a different direction. Every couple days the top will be pointing upward again while axins (branching hormones) reach the other nodes. Each time the top pulls up above the other branches the top rope should be moved up and the top pulled down. Continue doing this until the top does not pull above the other branches.</p>
+            </div>
+            <div class="section" id="topping">
+            <h3><a class="toc-backref" href="#topping">Topping</a></h3>
+            <p>Topping is one of the oldest tricks. No matter what you have heard topping is not clipping off bud tops. Topping is removing about 3/4 of the top growth tip. This will cause the plant top to split into two tops. This technique can be used to produce as many tops on a plant as you want. Begin topping off after the first pair of serrated leaves. Topping below the first set of serrated leaves will kill the plant. Making the first topping here forces 4 new tops to grow. When you see a new set of sprouts with each a set of leaves and when their tops are big enough pinch it off to make another set of sprouts on that limb. When you have 8 tops you're ready to begin flowering.</p>
+            </div>
+            </div>
+            <div class="section" id="cloning">
+            <h2><a class="toc-backref" href="#cloning">Cloning</a></h2>
+            <p>Okay so this is where we cue Doctor Frankenstein's lab. The doctor cackles madly and the lighting strikes just as he switches the lever. A moment later there is grunting from the form under the blanket and the doctor screams &quot;It's alive!!!&quot;</p>
+            <p>Or maybe not. Cloning a plant doesn't require a cleanroom, it doesn't require a lab. No men in white coats, no special chemicals or treatments. No high school biology let alone a degree. People have been cloning plants for thousands of years and its extremely easy to do. The simplest way to clone many plants is to cut off a piece of a plant and toss it in a glass of water. Stick the glass in the window, wait a few days and presto roots will sprout from the bottom of the cutting. At this point your cutting is now a clone of the plant it was cut from. For plants cloning and regeneration are a process that is completely natural. It happens to them regularly during the simple rigors of existence.</p>
+            <div class="section" id="why-clone">
+            <h3><a class="toc-backref" href="#why-clone">Why Clone?</a></h3>
+            <p>Cloning is the process of replicating the exact genetic characteristics of a plant. If you have found not only a good strain but a particularly fine specimen you can share it by cloning. Or you can keep the fine plant in the vegetative stage forever and only grow out and mature cuttings of it. Not only do you have a plant with known properties such as potency, potential yield, disease resistance, size, etc but you will be able to have a garden of plants that given the same conditions will more or less grow at the same rate and respond to the same way to different training methods. Your plants will all have the same nutrient requirements as well.</p>
+            <p>Cloning is also an ideal way to determine the sex and properties of potential mother plants without every having them undergo the stress of flowering. This is much better than taking a cutting during flowering or putting a flowering plant back under a longer light cycle to revert it back to vegetative growth. Stress can alter or damage genetic material and that genetic change will be passed to the cuttings taken from the mother after that point.</p>
+            </div>
+            <div class="section" id="rooting-hormone">
+            <h3><a class="toc-backref" href="#rooting-hormone">Rooting Hormone</a></h3>
+            <p>Rooting hormone is completely optional. It often comes as a gel or powder that you apply to the base of the stem of your cutting to stimulate root growth. An alternative that seems to yield excellent results when compared to plain water or commercial rooting hormones is a dip in asprin water. Just crush up two extra strength asprin in a half liter of distilled water and let sit with occasional agitation overnight. Now dip your stems in the asprin water instead of rooting hormone before putting them in the medium and you will have excellent results.</p>
+            </div>
+            <div class="section" id="cloning-devices">
+            <h3><a class="toc-backref" href="#cloning-devices">Cloning Devices</a></h3>
+            <p>When you take cuts you are going to need to do something with them to keep them in ideal conditions until they grow roots. Obviously you will put them into a medium but then what? Here are a few devices used for this purpose.</p>
+            <div class="section" id="two-liter-bottle-method">
+            <h4><a class="toc-backref" href="#two-liter-bottle-method">Two Liter Bottle Method</a></h4>
+            <p>This is probably the cheapest and easiest consistent method to root a small number of clones. Just cut the bottom 40% off a two liter soda bottle put a clone in rockwool or a whole small jar with another medium inside the bottom. Cover with a plastic bag and hold the bag down with a rubber band. Before sealing give it a puff of exhaled air to fill it with CO2.</p>
+            <p>This traps humidity and it is normal and desirable for moisture to condense on the container. You will need to exchange air every day until roots appear.</p>
+            </div>
+            <div class="section" id="humidity-dome">
+            <h4><a class="toc-backref" href="#humidity-dome">Humidity Dome</a></h4>
+            <p>The most common tool used is the humidity dome. These can be purchased for $10-$15 U.S. Dollars at any hydroponic shop and consist of a plastic tray that is just the right size for a sheet of small rockwool cubes to fit inside of. There is then a clear plastic cover that fits on top of the tray to trap humidity. Depending on the number and size of clones you will need to exchange air between 1 and 3 times a day.</p>
+            </div>
+            <div class="section" id="bubbler">
+            <h4><a class="toc-backref" href="#bubbler">Bubbler</a></h4>
+            <p>These can be purchased or constructed. Essentially this consists of a tray with a cover. In the cover there will be numerous net pots and in the tray will be water and aquarium air stone strips. The strips bubble air through the water causing the bursting bubbles to moisten the medium in the net pots. These can be used with or without a humidity dome cover.</p>
+            </div>
+            <div class="section" id="wick-cloner">
+            <h4><a class="toc-backref" href="#wick-cloner">Wick Cloner</a></h4>
+            <p>These simple and prolific cloners are generally constructed rather than purchased. A system similar to the bubbler is used with a tray and cover. Instead of net pots the tray has half pint plastic containers suspended over the water. A wick, usually a 1 1/2 inch piece of shoelace or strip of cloth then goes from a hole in the middle of the bottom of the container down into the water. The containers are then filled with perlite. The wicks pull up moisture into the perlite. A dome cover is not used with this method.</p>
+            </div>
+            </div>
+            <div class="section" id="taking-cuttings">
+            <h3><a class="toc-backref" href="#taking-cuttings">Taking Cuttings</a></h3>
+            <p>This is the easy part. You will want a pair of sharp scissors and a cup of water handy. When you take a cut put it into the water immediately. Cuttings should be about four inches long, and the cut should be placed about 1 cm below a node. You must have a growth tip to take a cutting and will want a couple nodes past that.</p>
+            <div class="section" id="prep-cuts">
+            <h4><a class="toc-backref" href="#prep-cuts">Prep Cuts</a></h4>
+            <p>After you have your cuttings take your glass of water over to a sink. You will need a sharp knife or razor for this step. You should prep and plant each cutting entirely before moving the next. Remove all leaves except for the top set. Clip the leaves on the stop set so long, that half their length is present. Place the stem of the cutting under water either submerged in a pool of water or under a stream in the sink. Cut the stem at a 45 degree angle. This prevents air bubbles in the stem that would prevent moisture uptake. Finally score the bottom 1/4 of the stem. You only want to score the skin of the stem and not cut into the stem itself.</p>
+            </div>
+            <div class="section" id="planting-the-cuttings">
+            <h4><a class="toc-backref" href="#planting-the-cuttings">Planting the Cuttings</a></h4>
+            <p>Dip your prepared cutting into asprin water or any rooting hormone you have (if any) and then plant in the container and/or medium you will be using. Try to plant all stems approximately the same height and just enough to give good purchase in the medium.</p>
+            <p>That's it, use one of the aforementioned systems to care for your clone for the 7-14 days until it grows roots (yellowing in the leaves is often a sign that roots are developing). Not everyone will have 100% success so take extras cuts. This lets you pick the healthiest clones. After roots form you should plant the clones within 7 days and feed only 1/4 to half strength nutrient until they are healthy (about 7 days after rooting). Clones should be treated like seedlings. One major difference is that clones are sexually mature as soon as they root and can be flowered immediately if you so choose although most growers give them a veg period.</p>
+            </div>
+            </div>
+            <div class="section" id="generational-cloning">
+            <h3><a class="toc-backref" href="#generational-cloning">Generational Cloning</a></h3>
+            <p>Replacing your mother with a fresh clone from healthy tissue often will reduce genetic damage due to stress and replication failures over the life of the plant. Over the course of time genetic damage will occur within any organism and your mother plants are no exception. While plants are very resilient to this particular type of damage it still occurs. However, this type of damage is often localized and a clone taken from an undamaged portion of the plant will contain the original genetic profile. This clone can then be grown and cultivated a replacement mother plant with no adverse effects because it contains the same genetic code as the original mother plant. This is true no matter how many generations of mothers from mothers you take.</p>
+            </div>
+            </div>
+            <div class="section" id="sexing">
+            <h2><a class="toc-backref" href="#sexing">Sexing</a></h2>
+            <p>Sexing is an important part of the growing of marijuana. It is the source of much needless worry for beginning growers. You want to sex your plants to remove males. Male plants have low potency. Those interested in the psychoactive effects will want to cultivate the females for their flowers. In the 1960s people used the leaves, stems, and fertilized flowers effectively medicinally with excellent results. The leaves or &quot;shake&quot; can be smoked with good results. The flowers are the most potent especially when not allowed to be fertilized..</p>
+            <p>A virginal female plant will direct the bulk of its energy later in its growth phase into developing the flower buds and swelling them with the resin that carries the bulk of marijuana's potency. The plant does this so that the large sticky flowers are more likely to catch pollen. If the flower is pollinated it will instead direct the bulk of its energy to seed production. This is where low quality dirt weed comes from. If you have seedy pot, it is dirt weed. The more seeds contained in the pot the lower the quality. And of course seeds add dramatically to the weight since they weigh more than the bud itself, this is sharply contrasted with stems that are mostly water weight and have a negligible weight compared to the bud.</p>
+            <p>Plants generally should demonstrate their sex one to two weeks into flowering. During the first ten days of flowering there is very little need for concern about males pollinating your crop. Additionally, if you reproduce by cloning you will only have to worry about males once.</p>
+            <div class="section" id="identifying-the-male">
+            <h3><a class="toc-backref" href="#identifying-the-male">Identifying the Male</a></h3>
+            <p>Males can be identified by looking at the nodes where leaf and branch stems connect with the main stalk. Male flowers will contain balls somewhere between the size of a marijuana seed and a popcorn seed. One ball is not definitive since female pistils sometimes split from a small single ball that opens. But two or three balls in a cluster is sure confirmation that you have a male. Males should be removed and destroyed to prevent them from releasing pollen. The pollen transports easily so the males can not be safely grown anywhere that shares an A/C or ventilation system unless special precautions are taken. The males for the most part show their sex before the females. They appear often to be a lanky less bushy plant than the female. It takes about a week after showing their sex before pollen is released, making it easy to separate from the female. Males can be used to make hashish, though it will require a larger amount of leaves to make hashish or canna-butter (cannabis butter).</p>
+            </div>
+            <div class="section" id="identifying-the-female">
+            <h3><a class="toc-backref" href="#identifying-the-female">Identifying the Female</a></h3>
+            <p>Females are very simple to identify. They sprout white hairs. A small ball will form and split and two tiny white hairs like translucent threads will split out. These hairs are called pistils and intended to catch pollen. Later when the plant is not pollinated these hairs will change color.</p>
+            <p>Pistils may guarantee that your plant is not a male but your plant could still be a hermaphrodite. You must watch plants grown from seed carefully for male flowers and even a trusted clone if it has undergone stress such as light during its dark period, lack of watering, or being left to flower far past maturity.</p>
+            </div>
+            <div class="section" id="pre-flowers">
+            <h3><a class="toc-backref" href="#pre-flowers">Pre-flowers</a></h3>
+            <p>On certain strains what are known as pre-flowers may appear while the plant is still in vegetative growth. This is perfectly normal.</p>
+            </div>
+            <div class="section" id="cloning-for-sex">
+            <h3><a class="toc-backref" href="#cloning-for-sex">Cloning for Sex</a></h3>
+            <p>No this is not the title of futuristic fantasy movie. You can always revert a mother to veg in order to take cuttings and can even take cuttings during flowering (although success rates will be lower and rooting will take longer) but this process induces stress on the plant that can and does cause hormonal and genetic changes. It is much better to have a mother plant that has never been flowering.</p>
+            <p>Recognizing this, people have begun taking clones from their vegetating plants when they reach maturity. Once the clone is rooted, you would either flower the original plant or the clone and keep the other under 18hr or 24hr light indefinitely.</p>
+            </div>
+            <div class="section" id="early-genetic-sex-determination">
+            <h3><a class="toc-backref" href="#early-genetic-sex-determination">Early Genetic Sex Determination</a></h3>
+            <p>Using qPCR technology, it is now possible to have the sex of seedlings determined in as early as seven days after seeds pop. Completed through a laboratory, this DNA-based technology is the most rapid, safe, accurate and efficient cannabis sexing method. Using this method allows growers to save the time, resources, and space often required for traditional sexing methods.</p>
+            </div>
+            </div>
+            <div class="section" id="flowering">
+            <h2><a class="toc-backref" href="#flowering">Flowering</a></h2>
+            <p>The majority of marijuana cultivators are cultivating for unpollinated female flowers and breeding purposes. Naturally most readers are highly interested in this particular phase of adult marijuana growth. The truth is that flowering is actually pretty simple.</p>
+            <div class="section" id="when-do-i-flower">
+            <h3><a class="toc-backref" href="#when-do-i-flower">When do I Flower?</a></h3>
+            <p>When to flower is a decision every grower must make for themselves. During the flowering stage a plant may grow 2 - 2.5 times the size it achieved in vegetation. An indoor grower in particular will need to plan space accordingly. Up until then the grower will have been trimming and training plants but during flowering these things should be avoided if possible. Growers with limited space should take note.</p>
+            <p>Whenever you want to flower your plant should be at a level of maturity where it is producing alternating nodes. If grown from seed this will usually occur a few weeks into vegetative growth. Clones taken from a mature plant will be sexually mature upon rooting and can be flowered immediately.</p>
+            <p>Towards the end of flowering, plants will begin robbing nutrients from their leaves. This is perfectly normal and nothing to be alarmed about as yellowing leaves are normal. You do not need to make an effort to remove the leaves unless they are brown and dead.</p>
+            </div>
+            <div class="section" id="lighting-and-nutrient-changes">
+            <h3><a class="toc-backref" href="#lighting-and-nutrient-changes">Lighting and Nutrient Changes</a></h3>
+            <p>In order to make a plant flower you will need to reduce its light cycle down to 12hrs a day. During flowering it is absolutely essential to make the dark period as dark as possible and to never interrupt that cycle with light. Light up to the level of moonlight can be present without preventing the plant from flowering but any light reduces flowering hormone and will reduce the output of your plants. Light interruptions during the flowering period causes stress on the plants and can result in stress induced hermaphrodites. To avoid this, just place a green light bulb in the room. Use ONLY the green light when working in the room during the dark cycle. The plants cannot absorb the green light and thus it is safe to use, with no risk of ruining your crop. Attempts to remove all the pollen sacks on hermaphrodites are never successful and will result in a seedy crop. The best course of action if you find a hermaphrodite is to (1) spray the affected plants with water to hold the pollen in place, (2) put a trash bag around the whole plant (use a twist tie or something at the stem to hold it in place), (3) remove it quickly.</p>
+            <p>Some growers believe that it is important to begin using flowering nutrients 1-2 weeks before switching over the light for flowering. Others begin flowering nutrients when they switch the light. There may be benefits to switching nutrients early but it is certainly not a requirement.</p>
+            </div>
+            <div class="section" id="growth-and-rough-timeline">
+            <h3><a class="toc-backref" href="#growth-and-rough-timeline">Growth and Rough Timeline</a></h3>
+            <p>It should be noted that this is just a general average guideline. There are wide variations from this, some strains will move faster and other much more slowly. In some cases that wait is worthwhile and in others it is not.</p>
+            <p>1-2wks - During this time your plants will be changing over to their flowering period. It is generally during this time that the first evidence of flowers will appear.</p>
+            <p>2-4wks - During this time the plants will begin to stretch for the light. Flowers will appear at all the nodes but they will be light and airy no matter what you have done.</p>
+            <p>5+ - During this period you will likely see lots of yellowing on leaves and if you have done everything else right you will see the buds fill in and thicken substantially.</p>
+            <p>Last two weeks - During the last 1-2wks of your plants life you will want to water it with clean water and feed it no nutrients. Before the last 72hrs you will want to flush the grow medium thoroughly. During the last 24-48hrs you should shut off the lights (thc is light sensitive and the plants will be utilizing sugars already produced by photosynthesis during this period). Overall this will increase taste and potency by flushing the plant of fertilizers and sugars which simply don't taste good when burned.</p>
+            </div>
+            <div class="section" id="supplements">
+            <h3><a class="toc-backref" href="#supplements">Supplements</a></h3>
+            <p>There are a plethora of supplements on the market and no attempt will be made here to list them all at this time but there are a few general types that most flowering supplements fall into that can be addressed here.</p>
+            <p>Sugar supplements such as sweet, molasses, etc - This type of supplement does NOT feed the plant directly. Plants can not utilize already processed sugars like this. What this does do is nourish organisms living in the grow medium. If you are using an organic grow process or growing in soil this can be very beneficial but should be stopped during the flush period.</p>
+            <p>Hormone Supplements - Naturally the effects depend on the hormone but all in all these are beneficial but expensive. Plant growth hormone extracted from algea is helpful but provides far more benefit during the vegetative grow cycle than the flowering cycle. Plant flowering hormones are beneficial during flowering, largely for creating more flowering sites than without. Hormone supplements can be very expensive which often limits their practical utility.</p>
+            <p>Taste enhancers - There are products with citrus and other flavors that claim if you feed them to plants the plants will take on some aspect of their flavor. This is generally reported to be false.</p>
+            <p>Nutrient supplements - Some boosters are simply more flowering nutrient. How well they work depends on how ideal the mix you are using is already.</p>
+            <p>Calcium/Magnesium Supplements - These are very useful for balancing out your nutrient mix, this underrated nutrients are important for plant growth. The use of a supplement like this is highly recommended for all phases of growth.</p>
+            </div>
+            </div>
+            <div class="section" id="harvesting">
+            <h2><a class="toc-backref" href="#harvesting">Harvesting</a></h2>
+            <p>Harvesting marijuana is a joy and a blessing, until it becomes a pain in the arse. There is a great deal of work involved. Some strains will be more work than others but you can be certain that harvesting and trimming a crop will require a considerable time investment as well as sore hands and fingers.</p>
+            <div class="section" id="when-do-i-harvest">
+            <h3><a class="toc-backref" href="#when-do-i-harvest">When do I Harvest?</a></h3>
+            <p>The best way to determine when to harvest is to examine the maturity of the trichomes. Trichomes are the resin glands of the plant and their level of maturity gives you an idea of both how mature the plant is and the effects you can expect from the plant if harvested at a given stage. In order to examine trichomes you will need a pocket microscope, these are commonly available for about $15 USD in 50-100x magnification, 50x should be plenty.</p>
+            <p>Trichomes are stalks with a head at the tip, it is the tips that you will look at. You will want to look at the trichomes in a couple areas over the plant to get a good idea of the overall maturity. The tips start out clear, then later will begin to cloud, finally the tips will turn amber. Clear trichs aren't very potent, the ratio of cloudy to amber is really what you want to look for. The more amber the trichomes the more of body physical stone the pot will deliver. A heavier ratio of cloudy will deliver more of a soaring mental high. All of this is of course relative to the general effects provided by the strain. Most harvest at 30-50% amber, it is not recommended to go beyond 75% amber.</p>
+            <p>Though most people go by trichomes, it is not necessarily the best way. The cannabis bud has an actual look to it when it is finished, the calyxes swell, 95% of the hairs change color, and the hairs recede into the calyx.</p>
+            </div>
+            <div class="section" id="what-to-cut">
+            <h3><a class="toc-backref" href="#what-to-cut">What to Cut</a></h3>
+            <p>So its time to harvest but what should you cut and how do you go about it. Well the truth is that this is personal preference. Regardless of how you cut and trim your plants you should touch the flowers as little as possible and avoid breaking up the buds. Damaging the delicate trichomes will reduce the potency of the marijuana.</p>
+            <p>One way is to leave the plants in their pots (more or less intact) and spread out a couple news papers. Toss large sun leaves on newspaper and do small bud trimming over the other.</p>
+            <p>Start with the sun leaves and then trim progressively smaller. This way you will have less in your way. For now, leave the buds on your stems. For trimming the buds, first take all the tiny popcorn lower buds and put them where you are going to put your trim these won't be much of anything when dry. Next trim the actual bud leaves, this trim will have lots of trichomes so should be saved to make oil, butter, or something else so they don't go to waste. To trim the bud leaves start with leaves that you can see a stem on and clip off at the stem to remove. Then begin to trim in a circular motion around the bud until you have cut back to the sugar coating. Trimming past this point is just wasteful. Don't worry if they look fluffy or leafy, they will dry and cure into sticky potent buds if you've done everything right.</p>
+            <p>This should leave you with all the buds on a nice thick stem network that is suitable for any drying/curing process you want to use. Some drying processes will involve just clipping at the main stem and hanging upside down to dry, others will require you to further break down the plant into smaller bud pieces. When you do this leave enough stem for you to handle and work with the flowers you can and likely will trim down the stem later and dried stem doesn't weight a significant amount compared with dried bud. Also, you will find that you can trim the large top buds into smaller buds one node at a time. It is better to leave as large of a single bud mass as possible.</p>
+            </div>
+            </div>
+            <div class="section" id="drying-and-curing">
+            <h2><a class="toc-backref" href="#drying-and-curing">Drying and Curing</a></h2>
+            <p>Drying and curing marijuana is a critical step in the growth process. During this stage you can lose, preserve, or cultivate odor, flavor, and potency. Odor and flavor must be carefully cultivated. The drying and curing process allow the plant to purge sugar and if desired to purge chlorophyll (although some have developed a taste for the chlorophyll in the plant).</p>
+            <p>Improperly dried and cured marijuana can lose almost all of its original potency and lower potency marijuana can be concentrated to slightly higher potency if handled properly. Four things reduce the potency of marijuana; those things are exposure to light, heat, damage to the plant tissue, and air. Additionally, marijuana that is not dried and stored properly can contain too much moisture and grow mold (mould). It is important to remember that many rapid drying techniques will dry only the outside of a compact flower and that slow techniques like curing may be needed to draw that moisture to the surface.</p>
+            <p>The virtue in drying and curing as with all stages of marijuana cultivation is patience.</p>
+            <div class="section" id="air-drying">
+            <h3><a class="toc-backref" href="#air-drying">Air Drying</a></h3>
+            <p>Air Drying is probably the most popular method of drying marijuana. Air drying can be very well controlled. By controlling the amount of airflow, you control the speed of drying. A common technique is to suspend the plants upside down in a room with a circulating fan blowing (but not actually blowing on the plants themselves) in order to keep air moving. Another technique is to put the buds on a half open drawer or tray in a place with moving air. The further along in the drying process the more you close the drawer to reduce airflow.</p>
+            <p>A simpler way to dry the marijuana is to put the buds in a layer in a brown paper bag. This is simpler but faster and therefore the output is less desirable.</p>
+            <p>The speed in this process is a trade off. If you dry too fast then it will take longer to cure the marijuana properly. If you dry too slowly you will be exposing the marijuana to more air therefore reducing potency. Many growers shoot for about seven days drying time. If you are not going to cure the marijuana the plants should be dried until the stems snap easily rather than bend. If you are going to cure then you can begin with slightly more damp (but still mostly dry) marijuana.</p>
+            </div>
+            <div class="section" id="dry-ice-drying">
+            <h3><a class="toc-backref" href="#dry-ice-drying">Dry Ice Drying</a></h3>
+            <p>Because light, heat, and air all degrade potency someone came up with the idea of using a can or other container in a freezer or using a cooler to dry the marijuana using dry ice. Dry ice can be purchased at virtually any supermarket and is simply frozen carbon dioxide gas. In order to avoid injury you should avoid direct contact with your skin.</p>
+            <p>By using about the same amount of ice as marijuana you can dry your weed out without exposing it to air or light and certainly not heat! Simply lay down a layer of dry ice, put an insulating layer of breathable cloth over it like a cheesecloth or a simply kitchen towel. Then lay the buds spread out on top of the ice. Make sure there is a way for the gas to escape as the dry ice evaporates.</p>
+            <p>Dry ice never becomes liquid, it sublimates directly into a gas form and carries moisture away from your bud when it does. Once all the ice is evaporated your bud should be mostly dry. If not, put a little more ice in and repeat until it is dry.</p>
+            <p>Some experiments with this method have suggested that it may be better to remove the marijuana before the ice is completely evaporated, since some condensation will collect in the container adding moisture back (although this moisture will dry more quickly since it is not locked in the cells of the plant).</p>
+            <p>Unfortunately, this method causes the trichomes on your marijuana to fall off leaving you with a less potent product.</p>
+            </div>
+            <div class="section" id="microwave-and-oven">
+            <h3><a class="toc-backref" href="#microwave-and-oven">Microwave and Oven</a></h3>
+            <p>A microwave and an oven both dry marijuana using heat. You can cover bud between layers of paper towel in a microwave or use an oven on the lowest setting with the door cracked open to dry marijuana but heat will absolutely degrade the potency of your final output dramatically.</p>
+            </div>
+            <div class="section" id="food-dehydrator-drying">
+            <h3><a class="toc-backref" href="#food-dehydrator-drying">Food Dehydrator Drying</a></h3>
+            <p>Food dehydrators can be used to dry marijuana along with most other materials but are not recommended for this purpose. Food dehydrators use the direct application of rapid air movement and in most models the application of heat to dry materials. As explained previously heat and air will degrade the psychoactive components in the marijuana such as THC.</p>
+            </div>
+            <div class="section" id="slow-cure">
+            <h3><a class="toc-backref" href="#slow-cure">Slow Cure</a></h3>
+            <p>Now that your initial drying is over you need to distribute the remaining moisture evenly through the bud because right now its all in the middle. You also want to remove some more of that moisture and the chlorophyll with it.</p>
+            <p>The traditional technique is the slow cure. With the slow cure you will put the material into a sealed container such as a glass jar or ceramic jar. Plastic containers aren't recommended as much because they aren't typically as air tight as glass jars or ceramic jars with sealed lids (think the type of jars you might put flour or sugar in) Most growers recommend curing for a minimum of two weeks. You want to fill the jars as much as possible, the less air in the jar the better. Keep the jars at room temperature, never in an overly hot environment. Hot environments can cause the moisture to come out of the marijuana too quickly, which if left unchecked can cause mold or fungus to develop. Once a day for about the first week, with the lids on, shake the jars around to move the buds(they will stick together, trapping the moisture between them) and then open the lid, leaving the lid off for about 1-3 minutes, so that any excess moisture in the jar can evaporate, then re-lid. After about 3 days in the jars, it is recommended to empty all the jars (of the same strain) into a larger container, and re-bottle them. Some buds in the jars will cure faster than others, and there will be more moisture in some jars than in others. By rearranging the buds in the jars, it equalizes the moisture. After the first week of opening once a day, and rearranging at least one time, you can go 2-3 days between opening the jars, but make sure you still do this for at least 2 more weeks. After about 2-3 weeks, you will notice a significant change in the smell inside the jars occurring. It will stop smelling like fresh cut grass or lawn clippings as much, and start smelling sweeter (or possibly spicier, depending on the strain). When you no longer can smell any hint of lawn clippings type of smell (some people also describe this as a putrid swamp smell) then you can be reasonably sure that the marijuana is cured and smokeable. The leaves on the buds maybe lighten up in color during this time also, though not always. The longer you cure it, however, the better the flavor and aroma will become, and typically the less harsh the smoke will be.</p>
+            <p>Once you've reached the ideal cure, do not open the jars anymore unless you intend to consume the product, as opening the jars will just continue to dry out the buds.</p>
+            <p>During the cure the chlorophyll in the leaves turns to sugars, which is what gives the marijuana its taste and aroma. It also allows the trichomes (the sticky frosty stuff on the leaves and buds) a chance to ripen. Marijuana flowers ripen in much the same way as a tomato might. Think of a green tomato, you wouldn't want to eat it (unless you actually like green tomatoes, but less assume you don't) So you put the green tomato somewhere and leave it for a few weeks, and it turns red, soft, and edible. Bananas do this as well. No one likes green bananas, though they are still edible (just like marijuana is still smokeable) The difference in &quot;ripe&quot; marijuana is that the high will last longer than if you smoke it when it isn't cured. Sometimes you may smoke uncured marijuana and only feel the effects for a very short time, but that same marijuana cured may last for hours when smoked.</p>
+            <p>Drying and curing marijuana are VERY different. If you use a &quot;quick dry&quot; method and then smoke it, expect to smoke garbage. You can still cure VERY dry marijuana, but it will be very crumbly when its cured.</p>
+            <p>Generally medicinal grade cannabis can be stored for approximately 6 to 12 months before any degradation is noticed as long as it is stored in completely airtight containers, in the dark. DO NOT STORE IT IN THE FREEZER, this could ruin your marijuana.</p>
+            <p>Gladware containers, Ziploc bags, and most &quot;airtight&quot; containers other than glass and ceramic should be avoided, as they actually aren't air tight as you think, and will cause quicker degredation of your finished product. Mason jars with tight lids are ideal</p>
+            </div>
+            <div class="section" id="sweat-cure">
+            <h3><a class="toc-backref" href="#sweat-cure">Sweat Cure</a></h3>
+            <p>This is often done in impoverished nations with large commercial crops and is similar to how tobacco is commonly cured. Pile your buds into a pile of alternating layers. Shift around the buds periodically. This will cure and brown the marijuana quickly but is using heat to do it. This technique will reduce potency and helps breed harmful fungus and bacteria. For these reasons it is not recommended. it is also common among Jamaican and Rasta culturistic curing techniques.</p>
+            </div>
+            </div>
+            <div class="section" id="producing-seeds">
+            <h2><a class="toc-backref" href="#producing-seeds">Producing Seeds</a></h2>
+            <p>Sooner or later every grower is going to want to produce marijuana seeds. Developing a new stable strain is beyond the scope of this discussion and requires the ability to grow hundreds or even thousands of breeding plants. However, just about any grower can manage to preserve some genetics by growing f2 seeds where they have crossed a male and female of the same strain, or can produce a simple cross which would be referred to as strain1xstrain2 for instance white widow crossed with ak-47 would be referred to as a WW x AK-47. You can produce some excellent seed and excellent marijuana this way.</p>
+            <div class="section" id="to-feminise-or-not-to-feminise">
+            <h3><a class="toc-backref" href="#to-feminise-or-not-to-feminise">To Feminise or not to Feminise</a></h3>
+            <p>There are numerous myths surrounding feminized seeds. Feminizing seeds are a bit more work than simply crossing two plants naturally. However it will save you a lot of time in the end. If you make fem seeds properly then there is no increased chance of hermaphrodites and all seeds will be female. This means no wasted time and effort growing males and it means that all your viable seeds produce useful plants. Since roughly half of normal seeds are male this effectively doubles the number of seeds you have.</p>
+            <p>Feminized seeds are bred to contain no male chromosomes, which will be able to produce the crop of resinous buds sought by most growers. For gardeners who require a quick and easy cultivation process, feminized seeds are the ideal choice. Some medicinal cannabis users may be deterred from growing their own supply because of the perceived difficulty of growing or of identifying the different genders and removing males early in the blooming period. Feminized seed-strains offer a simple solution to these issues, as there is no need to spend time in the first weeks of flowering checking for male plants.</p>
+            <p>Other times you will have no choice but to produce feminized seed because it will be a female plants genetics that you want to preserve and you won't have any males. Perhaps you received these genetics via clone or didn't keep males.</p>
+            <p>The new thing on the market for commercial Cannabis cultivation are auto-flowering feminized strains. By crossing of the cannabis ruderalis with Sativa and Indica strains many cultivators have created interesting hybrids which boast benefits from both sides of these families.</p>
+            <p>The first 'auto-flowering cannabis seed' which came on the market a few years ago was the Lowryder #1. This was a hybrid between a Cannabis ruderalis, a William’s Wonder and a Northern Lights #2. This strain was marketed by 'The Joint Doctor' and was honestly speaking not very impressive. The genetics of the ruderalis was still highly present which caused for a very low yield and little psychoactive effect. Not very attractive.</p>
+            <p>Auto-flowering cannabis and the easily distributed seed have opened a whole new market in the world of the online grow-shop, making it easy for home growers with shortage of space to grow rewarding cannabis plants in many different varieties. To grow plants indoors, a growing medium (e.g. soil or growing Potting soil, irrigation (water), fertilizer (nutrients), light and atmosphere need to be supplied to the plant.</p>
+            <p>Auto-flowers have been rising in popularity fast and there are now auto flower growers communities. These Web properties allow users to get information on how to grow these non photo-sensitive plants and what are the best practices when producing and germinating auto-flower seeds.</p>
+            </div>
+            <div class="section" id="selecting-suitable-parents">
+            <h3><a class="toc-backref" href="#selecting-suitable-parents">Selecting Suitable Parents</a></h3>
+            <p>There are a number of important characteristics when selecting parents. First are you making fem seeds? If you are then both parents will be female. This makes things easier. If not then the best you can do is select a male with characteristics in common with the females you hope to achieve from the seed.</p>
+            <p>Obviously potency, yield, and psychoactive effects are critical to the selection process. But some other important traits are size, odor, taste, resistance to mold and contaminants, early finishing and consistency.</p>
+            </div>
+            <div class="section" id="collecting-and-storing-pollen">
+            <h3><a class="toc-backref" href="#collecting-and-storing-pollen">Collecting and Storing Pollen</a></h3>
+            <p>In order to collect pollen you simply put down newspaper around the base of the plant. The pollen will fall from the plant onto the newspaper. You can then put this newspaper into a plastic bag and store it in the refrigerator or freeze it. Pollen will keep for a few months in the refrigerator and can be used on the next crop. Filtering the pollen through a silkscreen, drying, and freezing can extend viability for decades. At least one reader indicates success using pollen treated in this manner and stored at -30c for 17 years. The chance of viability does decrease with time, even in the freezer, so the more fresh the pollen the better. Wrapping the pollen in a layer of aluminum foil and then a layer of plastic should help to protect it from freezer burn. Additionally, oxygen evacuation such as with a heavy gas like nitrogen or vacuum sealing should provide additional assurance of preservation.</p>
+            </div>
+            <div class="section" id="pollinating-a-plant">
+            <h3><a class="toc-backref" href="#pollinating-a-plant">Pollinating a Plant</a></h3>
+            <p>To pollinate a plant you can brush the pollen on a flower with a cotton swab or you can take the plastic bag, then wrap the flower inside it and shake, trapping the pollen inside for easier transportation. In this way you can selectively pollinate plants and even individual buds and branches.</p>
+            </div>
+            <div class="section" id="male-isolation">
+            <h3><a class="toc-backref" href="#male-isolation">Male Isolation</a></h3>
+            <p>A male plant or a plant with male flowers will pollinate your entire crop rendering it seedy. You probably don't want THAT many seeds so how can you avoid it? Moving the male to another room might work but if that other room shares an air path via ducting or air conditioning then pollen may still find its way. One technique is to construct a male isolation chamber.</p>
+            <p>A male isolation chamber is simply a transparent container such as a large plastic storage tub turned on its side (available at your local megamart). Get a good sized PC fan that can be powered with pretty much any 12v wall adapter, by splicing together the + (yellow or red on fan, usually dotted on power adapter) and the - wires (black on fan, usually dotted power adapter) just twist with the like wire on the other device and then seal up the connection with electric tape. Then take a filtrate filter and cut out squares that fit the back of the pc fan so that the fan pulls (rather than pushes) air through the filter. Tape several layers of filter to the back of the pc fan so all the air goes through the filter. Now cut a large hole in the top of the plastic container and mount the pc fan over top of it so it pulls air out the box. You can use silicon sealant, latex, whatever you've got that gives a good tight seal.</p>
+            <p>This can be used as is, or you can cut a small intake in the bottom to improve airflow. Pollen won't be able to escape the intake as long as the fan is moving but you might put filter paper over the intake to protect against fan failures. You can also use grommets to seal holes and run tubing into the chamber in order to water hydroponically from a reservoir outside the chamber. Otherwise you will need to remove the whole chamber to a safe location in order to water the plant or maintain a reservoir kept inside the chamber.</p>
+            </div>
+            <div class="section" id="making-feminised-seed">
+            <h3><a class="toc-backref" href="#making-feminised-seed">Making Feminised Seed</a></h3>
+            <p>To make feminized seed you must induce male flowers in a female plant. There is all sorts of information on the Internet about doing this with light stress (light interruptions during flowering) and other forms of stress. The best of the stress techniques is to simply keep the plant in the flowering stage well past ripeness and it will produce a flower.</p>
+            <p>Stress techniques will work but whatever genetic weakness caused the plants to produce a male flower under stress will be carried on to the seeds. This means the resulting seeds have a known tendency to produce hermaphrodites. Fortunately, environmental stress is not the only way to produce male flowers in a female plant.</p>
+            <p>The ideal way to produce feminized seed through hormonal alteration of the plant. By adding or inhibiting plant hormones you can cause the plant to produce male flowers. Because you did not select a plant that produces male flowers under stress there is no genetic predisposition to hermaphroditism in the seed vs plants bred between a male and female parent. There are actually a few ways to do this, the easiest I will list here.</p>
+            <div class="section" id="colloidal-silver-cs">
+            <h4><a class="toc-backref" href="#colloidal-silver-cs">Colloidal Silver (CS)</a></h4>
+            <p>This is the least expensive and most privacy conscious way to produce fem seed. CS has gotten a bad name because there is so much bad information spread around about its production and concentrations. It doesn't help that there are those who believe in drinking low concentration colloidal silver for good health and there is information mixed in about how to produce that low concentration food grade product. Follow the information here and you will consistently produce effective CS and know how to apply it to get consistent results.</p>
+            <p>Simply construct a generator using a 9-12v power supply (DC output, if it says AC then its no good) that can deliver at least 250ma (most wall wart type power supplies work, batteries are not recommended since their output varies over time). The supply will have a positive and negative lead, attach silver to each lead (contrary to Internet rumors, you aren't drinking this so cheap 925(92.5%) stirling silver is more than pure enough. You can expose the leads by clipping off the round plug at the end and splitting the wires, one will be positive and the other negative just like any old battery. Submerge both leads about 2-3 inches apart in a glass of distilled water (roughly 8oz). Let this run for 8-24hrs (until the liquid reads 12-15ppm) and when you return the liquid will be a purple or silver hue and there may be some precipitate on the bottom.</p>
+            <p>This liquid is called colloidal silver. It is nothing more or less than fine particles of silver suspended in water so it is a completely natural solution and is safe to handle without any special precautions. The silver inhibits female flowering hormones in cannabis and so the result is that male flowering hormone dominates and male flowers are produced.</p>
+            <p>To use the silver, spray on a plant or branch three days prior to switching the lights to 12/12 and continue spraying every three days until you see the first male flowers. Repeated applications after the first flowers appear may result in more male flowers and therefore more pollen. As the plant matures it will produce pollen that can be collected and used to pollinate any female flower (including flowers on the same plant).</p>
+            </div>
+            <div class="section" id="silver-thiosulfate-sts">
+            <h4><a class="toc-backref" href="#silver-thiosulfate-sts">Silver Thiosulfate (STS)</a></h4>
+            <p>Silver Thiosulfate is a substance that has similar principle, application and results of CS, but is more difficult to make. STS is more difficult to acquire, but it can still be obtained directly from a chemical supply company. STS is not an expensive or controlled substance.</p>
+            </div>
+            <div class="section" id="gibberellic-acid-ga3">
+            <h4><a class="toc-backref" href="#gibberellic-acid-ga3">Gibberellic Acid (GA3)</a></h4>
+            <p>This is probably the most popular way to produce feminized seed, but at the same time the least effective. GA3 is a plant hormone that also causes the plant to stretch uncontrollably. It can be purchased readily in powdered form, a quick search reveals numerous sources on e-bay for as little as $15. Simply add to water to reach 100ppm concentration and spray the plant daily for 10 days during flowering and male flowers will be produced.</p>
+            </div>
+            </div>
+            </div>
+            <div class="section" id="pests-and-pest-control">
+            <h2><a class="toc-backref" href="#pests-and-pest-control">Pests and Pest Control</a></h2>
+            <p>As you continue growing, you will sooner or later face pests. Pests are able to destroy all of the plants in your garden if they are in same room. Pests will find your indoor environment to be ideal and full of food, without any natural enemies.</p>
+            <p>It is good to know what pests appear, where a crop they can live and what are the typical symptoms. All the symptoms are not due to pests and can be caused nutrient maladjusted nutrients.</p>
+            <p>A magnifying glass and daily or at least regular inspection can save your garden from ruin. Often, pests are hiding on the underside of leaves. In order to get an accurate view of pests and their effects on your plants a magnifier of at least 8x magnification power will be required. The most important thing is to monitor your plants regularly.</p>
+            <p>For other plants fighting pests is easier but hemp does not respond well to chemical pesticides and chemical poisons would often render the output to be unsafe to consume or smoke. Biological pesticides are not toxic, so they can be used to remove pests. Neem oil is a natural and effective insecticide, which is produced from Neem tree seeds by squeezing. Pine soap solution is another natural pesticide, which is active against some pests. Pesticides containing pyretine can be used safely (pyretrin is rapidly degradable organic insecticide). Before using any off the shelf pesticide you should make sure that the its use is recommended for fruits and vegetables. Any non-detergent soap can be mixed with water to make a natural pesticide, often ground red pepper or chilli powder is added as well to deter pests from returning. Soap based pesticides are effective against all soft bodied pests but because they kill on contact they must be applied with a great deal of care and do not on their own deter pests from returning. This is where the pepper additive comes in. If you have an aphid infestation then you should also consider taking steps to prevent ants from returning to your plants since it is the ants which farm the aphids.</p>
+            <div class="section" id="tetranychus-urticae">
+            <h3><a class="toc-backref" href="#tetranychus-urticae">Tetranychus urticae</a></h3>
+            <p>Spider mites are mostly orange-toned less than 0.5 mm long, spider animals. These should not occur if the humidity is above 80%. Vegetable mites are easy to identify because of their webs, but often it is already too late. If your hemp leaves are changing dirty yellow, and are starting to be falling, the plant may be infested with spider mites.</p>
+            <p>In order to prevent spider mites it is best to examine plants a few days apart with a magnifying glass. They cause damage in the form of small dots on the leaves, these dots are caused by the mites sucking of plant juices from the underside of the leaves. Begin by looking at leaf bottoms, usually, these very small spider animals thrive there. Eggs are spherical white dots. If mites are many and they are able to weave web, they can be very difficult to get rid of.</p>
+            <p>Spider mites thrive in a dry and warm environment, so the easiest of controlling is to increase air moisture. Mist regularly with water, especially below leafs. Keeping the temperature low will reduce their ability to reproduce. Unfortunately, spider mites remain alive even in cold temperatures and will resume activity when the temperature rises again.</p>
+            <p>If you find mites on any plant in your garden it may be best to remove it promptly to avoid infecting the other plants in the garden. Apply a safe insecticide (see information above on insecticides) thoroughly with careful attention to the undersides of leaves. Raise humidity above 80 percent and only then return the plant to the garden. Monitor the plant carefully for a few days. Often simply misting with water and raising the ambient humidity is sufficient.</p>
+            <p>Alternatively you can utilize predator mites Phytoseiulus persimili as a preventative measure. This will protect your crop through the vegetative phase of your grow only.</p>
+            </div>
+            <div class="section" id="trialeurodes-vaporariorum">
+            <h3><a class="toc-backref" href="#trialeurodes-vaporariorum">Trialeurodes vaporariorum</a></h3>
+            </div>
+            <div class="section" id="collembola">
+            <h3><a class="toc-backref" href="#collembola">Collembola</a></h3>
+            </div>
+            <div class="section" id="aphididae">
+            <h3><a class="toc-backref" href="#aphididae">Aphididae</a></h3>
+            </div>
+            <div class="section" id="coccidae">
+            <h3><a class="toc-backref" href="#coccidae">Coccidae</a></h3>
+            </div>
+            <div class="section" id="pseudococcus-citriculus">
+            <h3><a class="toc-backref" href="#pseudococcus-citriculus">Pseudococcus citriculus</a></h3>
+            </div>
+            <div class="section" id="thysanoptera">
+            <h3><a class="toc-backref" href="#thysanoptera">Thysanoptera</a></h3>
+            </div>
+            <div class="section" id="sciaridae">
+            <h3><a class="toc-backref" href="#sciaridae">Sciaridae</a></h3>
+            </div>
+            </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-2 hidden-xs hidden-sm">
+            <nav class="bs-docs-sidebar fixed">
+                <ul class="nav nav-stacked">
+                  <li>
+                    <a href="#introduction">Introduction</a>
+                    <ul class="nav nav-stacked">
+                      <li><a href="#purpose">Purpose</a></li>
+                      <li><a href="#disclaimer">Disclaimer</a></li>
+                      <li><a href="#how-to-use">How to Use</a></li>
+                      <li><a href="#copyright">Copyright</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#fundamentals">Fundamentals</a>
+                    <ul class="nav nav-stacked">
+                      <li><a href="#of-myths-and-magic">Of Myths and Magic</a></li>
+                      <li>
+                        <a href="#parts-of-the-plant">Parts of the Plant</a>
+                      </li>
+                      <li>
+                        <a href="#inside-vs-outside">Inside vs Outside</a>
+                      </li>
+                      <li>
+                        <a href="#dirt-vs-hydroponic">Dirt vs Hydroponic</a>
+                      </li>
+                      <li><a href="#organic-vs-inorganic">Organic vs Inorganic</a></li>
+                      <li>
+                        <a href="#nutrient-selection-and-maintenance">Nutrient Selection and
+                        Maintenance</a>
+                      </li>
+                      <li>
+                        <a href="#lighting">Lighting</a>
+                      </li>
+                      <li>
+                        <a href="#ventilation-and-odor-control">Ventilation and Odor Control</a>
+                      </li>
+                      <li><a href="#temperature-control">Temperature Control</a></li>
+                      <li>
+                        <a href="#grow-mediums">Grow Mediums</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#seedlings">Seedlings</a>
+                    <ul class="nav nav-stacked">
+                      <li>
+                        <a href="#selecting-seeds">Selecting Seeds</a>
+                      </li>
+                      <li><a href="#germinating-seeds">Germinating Seeds</a></li>
+                      <li><a href="#from-sprout-to-seedling">From Sprout to Seedling</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#vegetative-growth">Vegetative Growth</a>
+                    <ul class="nav nav-stacked">
+                      <li><a href="#id1">Lighting</a></li>
+                      <li><a href="#feeding">Feeding</a></li>
+                      <li><a href="#training-and-trimming">Training and Trimming</a></li>
+                      <li><a href="#jogging">Jogging</a></li>
+                      <li><a href="#sea-of-green">Sea of Green</a></li>
+                      <li><a href="#screen-of-green">Screen of Green</a></li>
+                      <li><a href="#lst">LST</a></li>
+                      <li><a href="#topping">Topping</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#cloning">Cloning</a>
+                    <ul class="nav nav-stacked">
+                      <li><a href="#why-clone">Why Clone?</a></li>
+                      <li><a href="#rooting-hormone">Rooting Hormone</a></li>
+                      <li>
+                        <a href="#cloning-devices">Cloning Devices</a>
+                      </li>
+                      <li>
+                        <a href="#taking-cuttings">Taking Cuttings</a>
+                      </li>
+                      <li><a href="#generational-cloning">Generational Cloning</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#sexing">Sexing</a>
+                    <ul class="nav nav-stacked">
+                      <li><a href="#identifying-the-male">Identifying the Male</a></li>
+                      <li><a href="#identifying-the-female">Identifying the Female</a></li>
+                      <li><a href="#pre-flowers">Pre-flowers</a></li>
+                      <li><a href="#cloning-for-sex">Cloning for Sex</a></li>
+                      <li><a href="#early-genetic-sex-determination">Early Genetic Sex
+                      Determination</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#flowering">Flowering</a>
+                    <ul class="nav nav-stacked">
+                      <li><a href="#when-do-i-flower">When do I Flower?</a></li>
+                      <li><a href="#lighting-and-nutrient-changes">Lighting and Nutrient
+                      Changes</a></li>
+                      <li><a href="#growth-and-rough-timeline">Growth and Rough Timeline</a></li>
+                      <li><a href="#supplements">Supplements</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#harvesting">Harvesting</a>
+                    <ul class="nav nav-stacked">
+                      <li><a href="#when-do-i-harvest">When do I Harvest?</a></li>
+                      <li><a href="#what-to-cut">What to Cut</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#drying-and-curing">Drying and Curing</a>
+                    <ul class="nav nav-stacked">
+                      <li><a href="#air-drying">Air Drying</a></li>
+                      <li><a href="#dry-ice-drying">Dry Ice Drying</a></li>
+                      <li><a href="#microwave-and-oven">Microwave and Oven</a></li>
+                      <li><a href="#food-dehydrator-drying">Food Dehydrator Drying</a></li>
+                      <li><a href="#slow-cure">Slow Cure</a></li>
+                      <li><a href="#sweat-cure">Sweat Cure</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#producing-seeds">Producing Seeds</a>
+                    <ul class="nav nav-stacked">
+                      <li><a href="#to-feminise-or-not-to-feminise">To Feminise or not to
+                      Feminise</a></li>
+                      <li><a href="#selecting-suitable-parents">Selecting Suitable
+                      Parents</a></li>
+                      <li><a href="#collecting-and-storing-pollen">Collecting and Storing
+                      Pollen</a></li>
+                      <li><a href="#pollinating-a-plant">Pollinating a Plant</a></li>
+                      <li><a href="#male-isolation">Male Isolation</a></li>
+                      <li>
+                        <a href="#making-feminised-seed">Making Feminised Seed</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#pests-and-pest-control">Pests and Pest Control</a>
+                    <ul class="nav nav-stacked">
+                      <li><a href="#tetranychus-urticae">Tetranychus urticae</a></li>
+                      <li><a href="#trialeurodes-vaporariorum">Trialeurodes vaporariorum</a></li>
+                      <li><a href="#collembola">Collembola</a></li>
+                      <li><a href="#aphididae">Aphididae</a></li>
+                      <li><a href="#coccidae">Coccidae</a></li>
+                      <li><a href="#pseudococcus-citriculus">Pseudococcus citriculus</a></li>
+                      <li><a href="#thysanoptera">Thysanoptera</a></li>
+                      <li><a href="#sciaridae">Sciaridae</a></li>
+                    </ul>
+                  </li>
+                </ul>
+
+            </nav>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('body').scrollspy({
+            target: '.bs-docs-sidebar',
+            offset: 40
+        });
+    });
+    </script>
+</div>
+{% endblock %}

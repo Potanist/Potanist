@@ -1,0 +1,27 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+{% block head_title %}{{ blogpost.title }} {{ block.super }}{% endblock %}
+{% block meta_description %}Check out the latest in marijuana homegrow news: {{ blogpost.title }}{% endblock %}
+
+{% block content %}
+<div class="container pad-between-nav">
+    <script src="{% static 'packages/markdown-browser-0.6.0-beta1/markdown.min.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.blog-body').each(function(){
+                $(this).html(markdown.toHTML($(this).html()));
+            })
+        });
+    </script>
+    <div class="row">
+        <div class="col-xs-12" style="margin-bottom:30px;">
+            <h1><a href="{% url 'blogpost_detailview' blogpost.pk %}">{{ blogpost.title }}</a></h1>
+            <h5>Posted by {{ blogpost.author }} on {{ blogpost.cre_date }}</h5>
+            <div class="blog-body">{{ blogpost.body }}</div>
+        </div>
+        <div class="col-xs-12">
+            <a href="{% url 'blog_view' %}">Return to blog list</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

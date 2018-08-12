@@ -1,0 +1,14 @@
+{% load socialaccount %}
+
+{% get_providers as socialaccount_providers %}
+{% for provider in socialaccount_providers %}
+  <div class="col-xs-8 col-xs-offset-2 col-md-offset-0 col-md-4">
+    <a class="btn login-button btn-{{ provider.id }}" style="width: 100%"
+            href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
+      <i class="fa fa-{{ provider.id }}"></i>
+      {{ provider.name }}
+    </a>
+    </div>
+{% endfor %}
+
+
